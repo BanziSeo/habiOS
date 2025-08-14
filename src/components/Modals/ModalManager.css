@@ -1,0 +1,299 @@
+/* 전체 화면 오버레이 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+/* 모달 컨테이너 */
+.modal-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 80px 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 전체 포지션 헤더 */
+.modal-position-header {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.position-ticker {
+  /* color will be applied via theme.useToken() */
+}
+
+.position-separator {
+  /* color will be applied via theme.useToken() */
+}
+
+.position-date {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+.modal-grid-layout {
+  background: transparent;
+  height: 100%;  /* 전체 높이 사용 */
+  flex: 1;
+  min-height: 0;
+}
+
+.modal-item {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.2s;
+  min-height: 0;
+}
+
+.modal-item:hover {
+  transition: all 0.2s;
+}
+
+/* 드래그 중일 때 */
+.react-grid-item.react-grid-placeholder {
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* 편집 모드 표시기 */
+.modal-edit-mode-indicator {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  font-weight: 500;
+}
+
+.modal-edit-mode-indicator button {
+  border: none;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-edit-mode-indicator button:hover {
+  transform: scale(1.05);
+}
+
+/* 편집 모드 상태 */
+.modal-item.modal-edit-mode {
+  /* border will be applied via theme.useToken() */
+}
+
+.modal-item.modal-edit-mode .modal-drag-handle {
+  display: flex;
+  cursor: move;
+  border-radius: 12px 12px 0 0;
+  padding: 14px 20px;
+  align-items: center;
+  user-select: none;
+  height: 48px;
+  gap: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 15;
+}
+
+.modal-item.modal-edit-mode .modal-drag-handle::before {
+  content: '⋮⋮';
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.modal-item.modal-edit-mode .modal-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.modal-item.modal-edit-mode .modal-drag-handle:hover {
+  transition: all 0.2s;
+}
+
+/* 일반 모드에서는 헤더 숨기기 */
+.modal-item:not(.modal-edit-mode) .modal-drag-handle {
+  display: none;
+}
+
+/* 모달 콘텐츠 래퍼 */
+.modal-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  /* 투명하게 설정 - 부모의 배경색 사용 */
+  background: transparent;
+}
+
+/* 편집 모드에서 콘텐츠 스타일 */
+.modal-content-wrapper.edit-mode {
+  /* opacity 제거 - 편집 모드에서도 내용 잘 보이도록 */
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* 편집 모드 활성화 시 레이아웃 */
+.modal-grid-layout.edit-mode-active .react-grid-item {
+  transition: all 200ms ease;
+}
+
+.modal-grid-layout.edit-mode-active .react-grid-item:hover {
+  transition: all 200ms ease;
+}
+
+.modal-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  /* 투명하게 설정 - 부모의 배경색 사용 */
+  background: transparent;
+}
+
+/* 리사이즈 핸들 스타일 개선 */
+.react-resizable-handle {
+  background-image: none;
+  z-index: 20;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 편집 모드에서만 리사이즈 핸들 표시 */
+.modal-edit-mode .react-resizable-handle {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.react-resizable-handle-se {
+  cursor: se-resize;
+}
+
+.react-resizable-handle::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 0 0 4px 0;
+  transition: all 0.2s;
+}
+
+.modal-edit-mode:hover .react-resizable-handle::after {
+  border-width: 3px;
+  width: 14px;
+  height: 14px;
+}
+
+/* 스크롤바 스타일 */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  /* hover styles will be applied via theme.useToken() */
+}
+
+/* 커스텀 컨텍스트 메뉴 */
+.modal-context-menu {
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 180px;
+}
+
+.modal-context-menu-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.modal-context-menu-item:hover {
+  transition: all 0.2s;
+}
+
+/* Modal 내부의 모든 Ant Design 팝업이 제대로 표시되도록 z-index 조정 */
+.ant-popover,
+.ant-color-picker-panel,
+.ant-select-dropdown,
+.ant-dropdown,
+.ant-picker-dropdown,
+.ant-tooltip {
+  z-index: 10001;
+}
+
+/* ColorPicker 패널 전용 */
+.ant-popover.ant-color-picker,
+.ant-color-picker-panel-wrapper {
+  z-index: 10001;
+}
+
+/* Select dropdown 전용 */
+.ant-select-dropdown {
+  z-index: 10001;
+}
+
+/* 모달 내부의 모든 floating 요소들 */
+.modal-overlay ~ .ant-popover,
+.modal-overlay ~ .ant-select-dropdown,
+.modal-overlay ~ .ant-dropdown,
+.modal-overlay ~ .ant-picker-dropdown,
+.modal-overlay ~ .ant-tooltip {
+  z-index: 10001;
+}

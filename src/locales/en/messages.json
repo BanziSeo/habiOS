@@ -1,0 +1,123 @@
+{
+  "app": {
+    "initError": "App initialization failed",
+    "errorOccurred": "Something went wrong"
+  },
+  "account": {
+    "error": "Account error",
+    "noActiveAccount": "No active account. Please select an account.",
+    "noActiveAccountShort": "No active account.",
+    "notSelected": "No active account selected. Please select an account and try again.",
+    "deleteAccount": "Delete Account",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "lastAccountError": "Cannot delete the last account.",
+    "welcomeUser": "Welcome, {{username}}!",
+    "loginFailed": "Login failed",
+    "accountName": "Account Name",
+    "accountType": "Account Type",
+    "currency": "Currency",
+    "accountNamePlaceholder": "e.g. US Stock Day Trading",
+    "selectPlaceholder": "Select",
+    "deleteConfirmTitle": "Delete Account",
+    "deleteConfirmContent": "Are you sure you want to delete '{{name}}' account? All trading data in this account will be deleted.",
+    "deleteConfirmOk": "Delete",
+    "deleteConfirmCancel": "Cancel",
+    "deleteSuccess": "Account deleted successfully.",
+    "deleteFailed": "Failed to delete account.",
+    "discordLogin": "Log in with Discord (Beta)",
+    "googleLogin": "Log in",
+    "logout": "Log out",
+    "loggedOut": "You have been logged out",
+    "accountAndSettings": "Account & Settings",
+    "createAccount": "Create",
+    "accountNameRequired": "Please enter account name.",
+    "accountTypeRequired": "Please select account type.",
+    "currencyRequired": "Please select currency.",
+    "usStock": "US Stock",
+    "krStock": "Korean Stock",
+    "usdCurrency": "USD (Dollar)",
+    "krwCurrency": "KRW (Won)"
+  },
+  "trading": {
+    "dataProcessError": "Data processing error",
+    "importFailed": "Import failed"
+  },
+  "stopLoss": {
+    "invalidStopLoss": "Invalid stop loss",
+    "initialRSet": "Current stop loss risk (${{risk}}) has been set as Initial R",
+    "setError": "Failed to set Initial R",
+    "mustBePositive": "Initial R must be greater than or equal to 0",
+    "updateSuccess": "Initial R has been updated",
+    "updateFailed": "Stop loss update failed",
+    "updateFailedMessage": "Failed to update stop loss",
+    "sumMustBe100": "Stop loss percentages must sum to 100%",
+    "enterPrice": "Please enter stop loss price"
+  },
+  "loading": {
+    "default": "Loading..."
+  },
+  "error": {
+    "unknown": "An unknown error occurred.",
+    "success": "Success",
+    "database": "Database error",
+    "network": "Network error"
+  },
+  "validation": {
+    "orderDateRequired": "Order date is required",
+    "orderTimeRequired": "Order time is required",
+    "symbolRequired": "Symbol is required",
+    "sideInvalid": "Side must be \"BUY\" or \"SELL\"",
+    "quantityPositive": "Quantity must be positive",
+    "pricePositive": "Price must be positive",
+    "amountPositive": "Amount must be positive",
+    "commissionNonNegative": "Commission must be non-negative",
+    "slippageNonNegative": "Slippage must be non-negative",
+    "tradeTypeInvalid": "Trade type must be 'BUY' or 'SELL'",
+    "entryIdRequired": "Entry ID is required for SELL trades"
+  },
+  "dailyPlan": {
+    "loadError": "Failed to load daily plan.",
+    "saveSuccess": "Daily plan saved successfully.",
+    "saveError": "Failed to save daily plan."
+  },
+  "settings": {
+    "resetSuccess": "Settings have been reset to default values",
+    "shortcutDuplicate": "\"{{key}}\" is already used for \"{{label}}\".",
+    "shortcutUnset": "{{key}} shortcut unset"
+  },
+  "benchmark": {
+    "loadSuccess": "Benchmark data loaded successfully.",
+    "loadError": "Failed to load benchmark data."
+  },
+  "position": {
+    "memoSaveSuccess": "Position memo saved successfully",
+    "memoSaveError": "Failed to save position memo"
+  },
+  "import": {
+    "csvOnly": "Only CSV files can be uploaded.",
+    "selectFile": "Please select a file.",
+    "requirePortfolio": "Please enter current portfolio value for full reset import.",
+    "loadExistingError": "Failed to load existing data.",
+    "importSuccess": "Successfully imported: {{trades}} trades, {{positions}} positions",
+    "importWarning": "Import completed with some errors.",
+    "importError": "Error occurred during import."
+  },
+  "chart": {
+    "timeframeSwitched": "Switched to {{timeframe}}",
+    "averagePrice": "Avg Price: ${{price}}",
+    "stopLossInfo": "Stop {{index}}: ${{price}} ({{quantity}} shares)",
+    "notReady": "Chart is not ready",
+    "captureSuccess": "Chart captured successfully! Only Alert will be displayed.",
+    "captureFailed": "Chart capture failed:",
+    "loadPriceFailed": "Failed to load price data"
+  },
+  "database": {
+    "backup": "Database Backup",
+    "backupError": "Error occurred during backup",
+    "selectBackup": "Select Backup File",
+    "invalidFile": "Invalid file",
+    "restoreError": "Error occurred during restore",
+    "defaultAccount": "Default Account"
+  }
+}

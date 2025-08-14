@@ -1,0 +1,42 @@
+{
+  "title": "자산 곡선",
+  "selectAccount": "계정을 선택해주세요",
+  "tradingDays": "거래일수: {{count}}일",
+  "controls": {
+    "percentage": "퍼센트 표시",
+    "period": "기간",
+    "benchmark": "벤치마크",
+    "settings": "설정"
+  },
+  "benchmark": {
+    "spy": "S&P 500 (SPY)",
+    "qqq": "NASDAQ 100 (QQQ)",
+    "dia": "Dow Jones (DIA)",
+    "iwm": "Russell 2000 (IWM)",
+    "vti": "Total Market (VTI)",
+    "kospi": "코스피",
+    "kosdaq": "코스닥",
+    "loading": "벤치마크 데이터 로딩 중..."
+  },
+  "settings": {
+    "title": "차트 설정",
+    "movingAverages": "이동평균선",
+    "ma20": "20일 이동평균",
+    "ma50": "50일 이동평균",
+    "ma100": "100일 이동평균",
+    "ma200": "200일 이동평균",
+    "drawdown": "손실 구간 표시",
+    "gridLines": "격자선 표시",
+    "basicSettings": "기본 설정",
+    "backgroundColor": "배경색",
+    "gridColor": "격자선 색상",
+    "equityCurveLine": "자산 곡선 설정",
+    "color": "색상",
+    "lineWidth": "선 두께",
+    "save": "저장",
+    "cancel": "취소"
+  },
+  "messages": {
+    "noData": "데이터가 없습니다. CSV를 임포트해주세요."
+  }
+}

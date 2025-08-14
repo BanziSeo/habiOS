@@ -1,0 +1,127 @@
+/* TodayTradesWidget 스타일 */
+.today-trades-table-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.today-trades-table-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
+.today-trades-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.today-trades-table thead {
+  position: sticky;
+  top: 0;
+  background: rgba(24, 144, 255, 0.1);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.today-trades-table th {
+  padding: 8px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.today-trades-table.align-left th {
+  text-align: left;
+}
+
+.today-trades-table.align-center th {
+  text-align: center;
+}
+
+.today-trades-table.align-right th {
+  text-align: right;
+}
+
+.today-trades-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background-color 0.2s;
+}
+
+.today-trades-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.today-trades-table td {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.today-trades-table.align-left td {
+  text-align: left;
+}
+
+.today-trades-table.align-center td {
+  text-align: center;
+}
+
+.today-trades-table.align-right td {
+  text-align: right;
+}
+
+/* 확장 가능한 행 스타일 */
+.today-trades-table tr.expandable {
+  cursor: pointer;
+}
+
+.today-trades-table .expand-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  transition: transform 0.2s;
+}
+
+.today-trades-table .expand-icon.expanded {
+  transform: rotate(90deg);
+}
+
+/* 확장된 행 스타일 */
+.today-trades-table .expanded-row {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.today-trades-table .expanded-content {
+  padding: 0 0 0 48px;
+}
+
+.today-trades-table .sub-table {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.today-trades-table .sub-table td {
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+/* 스크롤바 스타일 */
+.today-trades-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.today-trades-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.today-trades-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.today-trades-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

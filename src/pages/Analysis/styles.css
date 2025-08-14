@@ -1,0 +1,167 @@
+.analysis-page {
+  height: 100%;
+  padding: var(--space-lg);
+  overflow-y: auto;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.analysis-card {
+  height: 100%;
+  min-height: 400px;
+}
+
+.analysis-filter-card {
+  height: auto;
+  min-height: auto;
+}
+
+.analysis-empty-state,
+.analysis-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.analysis-widget-content {
+  height: 100%;
+  overflow: auto;
+  padding: var(--space-md);
+}
+
+.analysis-stat-card {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: var(--space-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.analysis-stat-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-stat-value {
+  font-size: var(--font-xl);
+  font-weight: bold;
+  margin: var(--space-sm) 0;
+}
+
+.analysis-stat-label {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+.analysis-chart-container {
+  height: calc(100% - 40px);
+  min-height: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .analysis-page {
+    padding: var(--space-sm);
+  }
+  
+  .analysis-card {
+    min-height: 300px;
+  }
+  
+  .analysis-widget-content {
+    padding: var(--space-sm);
+  }
+  
+  /* Stack filter controls on small screens */
+  .filter-widget .ant-form-item {
+    margin-bottom: 8px;
+  }
+  
+  .filter-widget .ant-space {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .filter-widget .ant-space-item {
+    width: 100%;
+  }
+  
+  .analysis-page .filter-widget .ant-picker,
+  .analysis-page .filter-widget .ant-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .analysis-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .analysis-stat-card {
+    padding: 12px;
+  }
+  
+  .analysis-stat-value {
+    font-size: 20px;
+  }
+}
+
+/* Chart responsive sizing - Recharts 오버라이드 */
+.analysis-page .analysis-chart-container .recharts-wrapper,
+.analysis-chart-container .recharts-responsive-container .recharts-wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+
+.analysis-chart-container svg {
+  overflow: visible;
+}
+
+/* Responsive grid for stat cards */
+.analysis-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .analysis-stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
+/* Period analysis responsive */
+.period-type-selector {
+  margin-bottom: var(--space-md);
+}
+
+/* Setup analysis responsive */
+.setup-details-card {
+  overflow-x: auto;
+}
+
+.setup-list-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Time analysis responsive */
+.time-chart-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Ant Design overrides for better responsive */
+.analysis-container .analysis-page .ant-row {
+  margin-left: calc(var(--grid-gap) * -0.5);
+  margin-right: calc(var(--grid-gap) * -0.5);
+}
+
+.analysis-container .analysis-page .ant-col {
+  padding-left: calc(var(--grid-gap) * 0.5);
+  padding-right: calc(var(--grid-gap) * 0.5);
+}

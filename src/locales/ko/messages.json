@@ -1,0 +1,123 @@
+{
+  "app": {
+    "initError": "앱 초기화 실패",
+    "errorOccurred": "문제가 발생했습니다"
+  },
+  "account": {
+    "error": "계정 오류",
+    "noActiveAccount": "활성 계정이 없습니다. 계정을 선택해주세요.",
+    "noActiveAccountShort": "활성 계정이 없습니다.",
+    "notSelected": "활성 계정이 선택되지 않았습니다. 계정을 선택하고 다시 시도해주세요.",
+    "deleteAccount": "계좌 삭제",
+    "delete": "삭제",
+    "cancel": "취소",
+    "lastAccountError": "마지막 계정은 삭제할 수 없습니다.",
+    "welcomeUser": "환영합니다, {{username}}님!",
+    "loginFailed": "로그인 실패",
+    "accountName": "계좌 이름",
+    "accountType": "계좌 유형",
+    "currency": "통화",
+    "accountNamePlaceholder": "예: 미국주식 단기",
+    "selectPlaceholder": "선택하세요",
+    "deleteConfirmTitle": "계좌 삭제",
+    "deleteConfirmContent": "'{{name}}' 계좌를 삭제하시겠습니까? 이 계좌의 모든 거래 데이터가 삭제됩니다.",
+    "deleteConfirmOk": "삭제",
+    "deleteConfirmCancel": "취소",
+    "deleteSuccess": "계좌가 삭제되었습니다.",
+    "deleteFailed": "계좌 삭제에 실패했습니다.",
+    "discordLogin": "Discord로 로그인 (베타)",
+    "googleLogin": "Log in",
+    "logout": "로그아웃",
+    "loggedOut": "로그아웃되었습니다",
+    "accountAndSettings": "계좌 및 설정",
+    "createAccount": "생성",
+    "accountNameRequired": "계좌 이름을 입력해주세요.",
+    "accountTypeRequired": "계좌 유형을 선택해주세요.",
+    "currencyRequired": "통화를 선택해주세요.",
+    "usStock": "미국주식",
+    "krStock": "한국주식",
+    "usdCurrency": "USD (달러)",
+    "krwCurrency": "KRW (원)"
+  },
+  "trading": {
+    "dataProcessError": "데이터 처리 오류",
+    "importFailed": "임포트 실패"
+  },
+  "stopLoss": {
+    "invalidStopLoss": "유효한 스탑로스가 없습니다",
+    "initialRSet": "현재 스탑로스 설정의 리스크(${{risk}})가 Initial R로 설정되었습니다",
+    "setError": "Initial R 설정에 실패했습니다",
+    "mustBePositive": "Initial R은 0보다 크거나 같아야 합니다",
+    "updateSuccess": "Initial R이 업데이트되었습니다",
+    "updateFailed": "스탑로스 업데이트 실패",
+    "updateFailedMessage": "스탑로스 업데이트에 실패했습니다",
+    "sumMustBe100": "스탑로스 비중의 합이 100%가 되어야 합니다",
+    "enterPrice": "스탑로스 가격을 입력해주세요"
+  },
+  "loading": {
+    "default": "로딩 중..."
+  },
+  "error": {
+    "unknown": "알 수 없는 오류가 발생했습니다.",
+    "success": "성공",
+    "database": "데이터베이스 오류",
+    "network": "네트워크 오류"
+  },
+  "validation": {
+    "orderDateRequired": "주문일자는 필수입니다",
+    "orderTimeRequired": "주문시간은 필수입니다",
+    "symbolRequired": "종목명은 필수입니다",
+    "sideInvalid": "매도수는 \"매수\" 또는 \"매도\"여야 합니다",
+    "quantityPositive": "체결수량은 양수여야 합니다",
+    "pricePositive": "체결단가는 양수여야 합니다",
+    "amountPositive": "체결금액은 양수여야 합니다",
+    "commissionNonNegative": "수수료는 0 이상이어야 합니다",
+    "slippageNonNegative": "슬리피지는 0 이상이어야 합니다",
+    "tradeTypeInvalid": "매매 유형은 'BUY' 또는 'SELL'이어야 합니다",
+    "entryIdRequired": "매도 시 진입 ID는 필수입니다"
+  },
+  "dailyPlan": {
+    "loadError": "일일 계획을 불러오는데 실패했습니다.",
+    "saveSuccess": "일일 계획이 저장되었습니다.",
+    "saveError": "일일 계획 저장에 실패했습니다."
+  },
+  "settings": {
+    "resetSuccess": "설정이 초기값으로 재설정되었습니다",
+    "shortcutDuplicate": "\"{{key}}\"는 이미 \"{{label}}\"에서 사용 중입니다.",
+    "shortcutUnset": "{{key}} 단축키 설정 해제"
+  },
+  "benchmark": {
+    "loadSuccess": "벤치마크 데이터를 불러왔습니다.",
+    "loadError": "벤치마크 데이터를 불러오는데 실패했습니다."
+  },
+  "position": {
+    "memoSaveSuccess": "포지션 메모가 저장되었습니다",
+    "memoSaveError": "포지션 메모 저장에 실패했습니다"
+  },
+  "import": {
+    "csvOnly": "CSV 파일만 업로드 가능합니다.",
+    "selectFile": "파일을 선택해주세요.",
+    "requirePortfolio": "완전 초기화 임포트 시 현재 총자산을 입력해주세요.",
+    "loadExistingError": "기존 데이터를 불러오는데 실패했습니다.",
+    "importSuccess": "성공적으로 임포트했습니다: {{trades}}개 거래, {{positions}}개 포지션",
+    "importWarning": "임포트는 완료되었으나 일부 오류가 있습니다.",
+    "importError": "임포트 중 오류가 발생했습니다."
+  },
+  "chart": {
+    "timeframeSwitched": "{{timeframe}}로 전환",
+    "averagePrice": "평균가: ${{price}}",
+    "stopLossInfo": "스탑 {{index}}: ${{price}} ({{quantity}}주)",
+    "notReady": "차트가 준비되지 않았습니다",
+    "captureSuccess": "차트 캡쳐 성공! Alert만 표시됩니다.",
+    "captureFailed": "차트 캡쳐 실패:",
+    "loadPriceFailed": "가격 데이터를 불러오는데 실패했습니다"
+  },
+  "database": {
+    "backup": "데이터베이스 백업",
+    "backupError": "백업 중 오류가 발생했습니다",
+    "selectBackup": "백업 파일 선택",
+    "invalidFile": "유효한 파일이 아닙니다",
+    "restoreError": "복원 중 오류가 발생했습니다",
+    "defaultAccount": "기본 계정"
+  }
+}

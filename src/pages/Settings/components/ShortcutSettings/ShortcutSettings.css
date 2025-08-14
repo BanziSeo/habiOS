@@ -1,0 +1,134 @@
+/* 단축키 설정 컨테이너 */
+.shortcut-settings {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 탭 스타일 */
+.shortcut-tabs {
+  height: 100%;
+}
+
+.shortcut-tabs .ant-tabs-content {
+  height: calc(100% - 46px);
+  overflow-y: auto;
+}
+
+/* 섹션 스타일 */
+.shortcut-section {
+  padding: 12px;
+}
+
+.shortcut-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.shortcut-description {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--ant-color-fill-quaternary);
+  border-radius: 4px;
+}
+
+/* 그리드 레이아웃 */
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* 그룹 스타일 */
+.shortcut-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.shortcut-group {
+  padding: 16px;
+  background: var(--ant-color-bg-container);
+  border: 1px solid var(--ant-color-border);
+  border-radius: 6px;
+}
+
+.shortcut-group h5 {
+  margin-bottom: 12px;
+  color: var(--ant-color-text);
+}
+
+/* 리스트 스타일 - 2열 그리드로 변경 */
+.shortcut-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.shortcut-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--ant-color-bg-container);
+  border: 1px solid var(--ant-color-border);
+  border-radius: 4px;
+}
+
+.shortcut-menu-label {
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.shortcut-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 입력 컴포넌트 스타일 */
+.shortcut-input-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+}
+
+.shortcut-input-label {
+  font-size: 13px;
+  color: var(--ant-color-text);
+  font-weight: 500;
+  min-width: 100px;
+  text-align: right;
+}
+
+.shortcut-input {
+  min-width: 140px;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.shortcut-select {
+  min-width: 150px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .shortcut-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .shortcut-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* 다크 모드 대응 - 이미 CSS 변수로 처리됨 */

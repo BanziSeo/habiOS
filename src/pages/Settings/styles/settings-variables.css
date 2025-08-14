@@ -1,0 +1,104 @@
+/* 설정 페이지 공통 CSS 변수 */
+:root {
+  /* Spacing */
+  --settings-spacing-xs: 4px;
+  --settings-spacing-sm: 8px;
+  --settings-spacing-md: 12px;
+  --settings-spacing-lg: 16px;
+  --settings-spacing-xl: 24px;
+  --settings-spacing-xxl: 32px;
+  
+  /* Border Radius */
+  --settings-radius-sm: 4px;
+  --settings-radius-md: 6px;
+  --settings-radius-lg: 8px;
+  
+  /* Transitions */
+  --settings-transition-fast: 0.15s ease;
+  --settings-transition-normal: 0.2s ease;
+  --settings-transition-slow: 0.3s ease;
+  
+  /* Layout */
+  --settings-sidebar-width: 600px;
+  --settings-sidebar-min-width: 500px;
+  --settings-sidebar-max-width: 800px;
+  
+  /* Z-index */
+  --settings-z-index-dropdown: 1000;
+  --settings-z-index-modal: 1100;
+  --settings-z-index-tooltip: 1200;
+}
+
+/* 설정 페이지 공통 스타일 */
+.settings-group {
+  margin-bottom: var(--settings-spacing-xl);
+}
+
+.settings-section {
+  padding: var(--settings-spacing-lg);
+  border-radius: var(--settings-radius-lg);
+  background: var(--ant-color-bg-container);
+  border: 1px solid var(--ant-color-border-secondary);
+}
+
+.settings-item {
+  padding: var(--settings-spacing-md) 0;
+  border-bottom: 1px solid var(--ant-color-border);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ant-color-text);
+  margin-bottom: var(--settings-spacing-sm);
+}
+
+.settings-description {
+  font-size: 12px;
+  color: var(--ant-color-text-secondary);
+  margin-top: var(--settings-spacing-xs);
+  line-height: 1.5;
+}
+
+.settings-control {
+  display: flex;
+  align-items: center;
+  gap: var(--settings-spacing-sm);
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-fade-in {
+  animation: fadeIn var(--settings-transition-normal);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .settings-page .settings-sidebar-width,
+  .settings-container .settings-sidebar-width {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .settings-group {
+    margin-bottom: var(--settings-spacing-lg);
+  }
+  
+  .settings-section {
+    padding: var(--settings-spacing-md);
+  }
+}

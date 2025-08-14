@@ -1,0 +1,107 @@
+/* MetricsTableWidget v2 - Ant Design Table 스타일 */
+.metrics-table-widget-v2 {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.metrics-table-widget-v2 .ant-table-wrapper {
+  min-width: 0;
+}
+
+/* Ant Table 커스터마이징 */
+.metrics-table-widget-v2 .ant-table {
+  background: transparent;
+  min-width: 0;
+}
+
+.metrics-table-widget-v2 .ant-table-container {
+  min-width: 0;
+}
+
+/* 테이블 레이아웃 고정 - 더 구체적인 선택자로 우선순위 높임 */
+.widget-container .metrics-table-widget-v2 .ant-table-wrapper .ant-table-content table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 컬럼 너비 강제 - 2개 컬럼 */
+.widget-container .metrics-table-widget-v2 .ant-table-wrapper .ant-table-thead > tr > th:first-child,
+.widget-container .metrics-table-widget-v2 .ant-table-wrapper .ant-table-tbody > tr > td:first-child {
+  width: 60%;
+  max-width: 60%;
+}
+
+.widget-container .metrics-table-widget-v2 .ant-table-wrapper .ant-table-thead > tr > th:last-child,
+.widget-container .metrics-table-widget-v2 .ant-table-wrapper .ant-table-tbody > tr > td:last-child {
+  width: 40%;
+  max-width: 40%;
+  text-align: right;
+}
+
+.metrics-table-widget-v2 .ant-table-thead > tr > th {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  padding: 8px 4px;
+  font-size: 0.85rem;
+}
+
+.metrics-table-widget-v2 .ant-table-tbody > tr > td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 6px 4px;
+  font-size: 0.85rem;
+}
+
+.metrics-table-widget-v2 .ant-table-tbody > tr:hover > td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* 확장 행 스타일 */
+.metrics-table-widget-v2 .ant-table-expanded-row > td {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.metrics-table-widget-v2 .ant-table-row-expand-icon {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* 빈 상태 */
+.metrics-table-widget-v2 .ant-empty {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* 텍스트 오버플로우 처리 */
+.metrics-table-widget-v2 .ant-table-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 스크롤바 스타일 */
+.metrics-table-widget-v2 .ant-table-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.metrics-table-widget-v2 .ant-table-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.metrics-table-widget-v2 .ant-table-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.metrics-table-widget-v2 .ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 헤더 고정 시 보더 */
+.metrics-table-widget-v2 .ant-table-sticky-holder {
+  background: var(--bg-elevated);
+}
+
+.metrics-table-widget-v2 .ant-table-sticky-scroll {
+  display: none;
+}

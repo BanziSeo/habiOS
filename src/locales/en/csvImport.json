@@ -1,0 +1,58 @@
+{
+  "title": "CSV Import",
+  "description": "Import trading history from Hero Global CSV files.",
+  "importType": {
+    "title": "Import Type",
+    "append": "Append Import",
+    "appendDesc": "Keep existing data and add new trades only.",
+    "full": "Full Reset",
+    "fullDesc": "Delete all data and start fresh.",
+    "currentAssets": "Current Total Assets ({{currency}})"
+  },
+  "fileUpload": {
+    "title": "Select CSV File",
+    "dragText": "Click or drag file to upload",
+    "hint": "Only CSV files downloaded from Hero Global are supported.",
+    "fileSize": "File Size"
+  },
+  "button": {
+    "import": "Start Import",
+    "importing": "Importing..."
+  },
+  "result": {
+    "title": "Import Result",
+    "totalTrades": "Total Trades",
+    "newTrades": "New Trades",
+    "duplicateTrades": "Duplicate Trades",
+    "totalPositions": "Total Positions",
+    "newPositions": "New Positions",
+    "updatedPositions": "Updated Positions",
+    "savedTrades": "Saved Trades",
+    "skippedTrades": "Skipped Trades",
+    "savedPositions": "Saved Positions",
+    "skippedPositions": "Skipped Positions",
+    "importedPositions": "Imported Positions"
+  },
+  "table": {
+    "ticker": "Ticker",
+    "status": "Status",
+    "active": "Active",
+    "closed": "Closed",
+    "tradeCount": "Trade Count",
+    "avgBuyPrice": "Avg Buy Price",
+    "realizedPnl": "Realized P&L"
+  },
+  "error": {
+    "csvOnly": "Only CSV files are allowed.",
+    "selectFile": "Please select a file.",
+    "enterAssets": "Please enter current total assets for full reset import.",
+    "importError": "An error occurred during import.",
+    "dbError": "Database save error occurred",
+    "someErrors": "Import completed with some errors.",
+    "errors": "Errors"
+  },
+  "success": {
+    "importComplete": "Import complete: {{savedTrades}} trades saved, {{skippedTrades}} duplicates skipped / {{savedPositions}} positions saved, {{skippedPositions}} duplicates skipped",
+    "importSuccess": "Successfully imported: {{trades}} trades, {{positions}} positions"
+  }
+}

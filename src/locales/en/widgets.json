@@ -1,0 +1,417 @@
+{
+  "common": {
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "settings": "Settings"
+  },
+  "positionDetail": {
+    "categories": {
+      "tradingInfo": "Trading Information",
+      "riskManagement": "Risk Management",
+      "performanceMetrics": "Performance Metrics"
+    },
+    "metrics": {
+      "entry": "Entry",
+      "exit": "Exit",
+      "avgPrice": "Average Price",
+      "currentShares": "Current Shares",
+      "maxShares": "Max Shares Held",
+      "initialR": "Initial R",
+      "aumInitialRisk": "AUM Initial Risk %",
+      "pureRisk": "Open Risk %",
+      "pureRiskDollar": "Open Risk $",
+      "totalRisk": "Net Risk %",
+      "totalRiskDollar": "Net Risk $",
+      "rMultiple": "R-Multiple",
+      "realizedPnl": "Realized P&L",
+      "aumPnl": "AUM PnL %",
+      "size": "Size %",
+      "maxSize": "Max Size %"
+    },
+    "settings": {
+      "title": "Position Detail Settings",
+      "addCategory": "Add Category",
+      "categoryName": "Category Name",
+      "selectMetrics": "Select Metrics",
+      "quickStats": "Quick Stats",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save"
+    }
+  },
+  "tradeHistory": {
+    "quickStats": {
+      "totalTrades": "Total Trades",
+      "size": "Size",
+      "maxSize": "Max Size",
+      "netPnl": "Net P&L"
+    },
+    "columns": {
+      "dateTime": "Date/Time",
+      "type": "Type",
+      "quantity": "Quantity",
+      "price": "Price",
+      "amount": "Amount",
+      "size": "Size",
+      "pnl": "PnL",
+      "aumPnl": "AUM PnL"
+    }
+  },
+  "stopLoss": {
+    "title": "Stop Loss Settings",
+    "titleWithTicker": "Stop Loss Settings ({{ticker}})",
+    "noSL": "No SL",
+    "multiSL": "Multi SL",
+    "partial": "Partial",
+    "warning": {
+      "overCoverage": "Update needed ({{coverage}}%)",
+      "underCoverage": "Update needed ({{coverage}}%)"
+    },
+    "header": {
+      "position": "Position",
+      "quantity": "Quantity",
+      "positionSize": "Position Size",
+      "expectedRisk": "Expected Risk",
+      "pureRisk": "Open Risk"
+    },
+    "messages": {
+      "saveSuccess": "Stop loss saved and current risk set as Initial R",
+      "saveSuccessSimple": "Stop loss saved",
+      "saveError": "Failed to save stop loss",
+      "noValidStopLoss": "No valid stop loss",
+      "initialRSet": "Current stop loss risk (${{amount}}) has been set as Initial R",
+      "initialRSetFailed": "Failed to set as Initial R",
+      "riskConfirmTitle": "Risk Confirmation",
+      "riskExceeds2Percent": "Position risk is {{risk}}% which exceeds the typical risk management threshold (2%)",
+      "riskExceedsInitial": "New risk is {{percent}}% higher than existing maximum risk",
+      "continueQuestion": "Do you want to continue?",
+      "risk": "Risk"
+    },
+    "actions": {
+      "setAsInitialR": "Set as Initial R",
+      "save": "Save",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "tooltip": {
+      "initialR": "If checked, the current stop loss risk will be set as the Initial R (maximum risk) for this position"
+    },
+    "form": {
+      "noStopLoss": "No stop loss set",
+      "addStopLoss": "Add Stop Loss",
+      "add": "Add",
+      "inputByRatio": "Input by Ratio",
+      "inputByQuantity": "Input by Quantity",
+      "price": "Price",
+      "quantity": "Quantity",
+      "shares": "shares"
+    }
+  },
+  "chart": {
+    "preview": "(Preview)",
+    "capture": "Capture",
+    "error": "Chart Error",
+    "successAlert": {
+      "title": "Chart Captured",
+      "description": "Chart has been saved to ChartBook"
+    },
+    "tradeMarkers": {
+      "buy": "Long",
+      "sell": "Close"
+    },
+    "timeframes": {
+      "1m": "1m",
+      "2m": "2m",
+      "3m": "3m",
+      "5m": "5m",
+      "10m": "10m",
+      "15m": "15m",
+      "30m": "30m",
+      "60m": "1h",
+      "65m": "65m",
+      "1d": "Daily",
+      "1wk": "Weekly"
+    }
+  },
+  "dailyRiskLimit": {
+    "downsideOnlyTooltip": "Calculate losses only, ignore profits (conservative)",
+    "withUpsideTooltip": "Subtract profits from losses (actual net risk)"
+  },
+  "common": {
+    "startDate": "Start Date",
+    "endDate": "End Date"
+  },
+  "positionTable": {
+    "noActivePositions": "No active positions",
+    "noClosedPositions": "No closed positions",
+    "totalPositions": "Total {{total}} positions",
+    "setSL": "Set SL",
+    "activePositionsTab": "Active Positions ({{count}})",
+    "closedPositionsTab": "Closed Positions ({{count}})"
+  },
+  "todayTrades": {
+    "noTrades": "No trades on {{date}}",
+    "tradesCount": "{{count}} trades",
+    "timeColumn": "Time",
+    "tradeColumn": "Trade",
+    "individualViewNotReady": "Individual trade view is coming soon."
+  },
+  "dailyRiskLimit": {
+    "selectAccount": "Please select an account",
+    "title": "Daily Risk Limit",
+    "exceeded": "Exceeded",
+    "targetLimit": "Target Limit",
+    "targetLimitDesc": "Today's risk limit",
+    "currentUsage": "Current Usage",
+    "currentUsageDesc": "Existing {{existing}}% + New {{new}}%",
+    "exceededAmount": "Exceeded Amount",
+    "remainingLimit": "Remaining Limit",
+    "positionAdjustNeeded": "Position adjustment needed",
+    "availableForNew": "Available for new entries",
+    "downsideOnly": "Downside Only",
+    "withUpside": "With Upside",
+    "downsideOnlyDesc": "Calculate losses only, ignore profits. Most conservative risk management approach.",
+    "withUpsideDesc": "Subtract realized profits from risk to calculate actual net risk. Mathematically accurate calculation method.",
+    "positionBreakdown": "Position Breakdown",
+    "targetRiskLimitPercent": "Target Risk Limit (%)",
+    "cancel": "Cancel",
+    "save": "Save",
+    "usage": "Usage",
+    "todayRealizedPnl": "Today's Realized P&L",
+    "overnightActive": "Overnight Active",
+    "overnightClosed": "Overnight Closed",
+    "todayActive": "Today Active",
+    "todayClosed": "Today Closed"
+  },
+  "dailyPnl": {
+    "selectAccount": "Please select an account",
+    "totalRealizedPnl": "Total Realized P&L",
+    "existingPositions": "Existing Positions",
+    "newPositions": "New Positions"
+  },
+  "dailyNotes": {
+    "selectAccount": "Please select an account",
+    "cancel": "Cancel",
+    "save": "Save",
+    "placeholder": "Today's strategy, notes, etc...",
+    "emptyText": "Double-click to add notes..."
+  },
+  "metricsWidget": {
+    "periods": {
+      "twoWeeks": "Last 2 Weeks",
+      "oneMonth": "Last Month",
+      "custom": "Custom",
+      "allTrades": "All Trades"
+    },
+    "addCategories": "Add Categories",
+    "settings": {
+      "title": "Dashboard Metrics Settings",
+      "fontSize": {
+        "title": "Font Size Settings",
+        "category": "Category",
+        "metricName": "Metric Name",
+        "mainValue": "Main Value",
+        "subValue": "Sub Value",
+        "bold": "Bold"
+      },
+      "preview": {
+        "title": "Preview",
+        "sampleCategory": "PREVIEW",
+        "sampleMetric": "Win Rate",
+        "sampleValue": "22.2%",
+        "sampleSubValue": "34W / 119L"
+      },
+      "selectMetrics": "Select Metrics to Display"
+    },
+    "groups": {
+      "portfolioOverview": "Portfolio Overview",
+      "performanceMetrics": "Performance Metrics",
+      "riskManagement": "Risk Management"
+    },
+    "metrics": {
+      "currentValue": "Current Value",
+      "totalReturn": "Total Return",
+      "maxDrawdown": "Max Drawdown",
+      "tradingDays": "Trading Days",
+      "stockCash": "Stock / Cash",
+      "winRate": "Win Rate",
+      "avgWinR": "Avg Win R",
+      "avgLossR": "Avg Loss R",
+      "avgPositionsDay": "Daily Trades",
+      "avgHolding": "Avg Hold",
+      "avgWinnerHolding": "Winner Hold",
+      "avgLoserHolding": "Loser Hold",
+      "openPositions": "Open Positions",
+      "portfolioOpenRisk": "Portfolio Open Risk",
+      "portfolioOpenRiskDollar": "Portfolio Open Risk ($)",
+      "portfolioNetRisk": "Portfolio Net Risk",
+      "portfolioNetRiskDollar": "Portfolio Net Risk ($)",
+      "expectancy": "Expectancy",
+      "expectancyR": "Expectancy R",
+      "payoffRatio": "Payoff Ratio",
+      "avgRiskPerTrade": "Avg Risk/Trade",
+      "avgSizePerTrade": "Avg Size/Trade",
+      "stdDevReturns": "Std Dev Returns",
+      "downsideDeviation": "Downside Dev",
+      "sharpeRatio": "Sharpe Ratio",
+      "maxConsecutiveWins": "Max Wins Streak",
+      "maxConsecutiveLosses": "Max Loss Streak",
+      "raroc": "RAROC"
+    },
+    "help": {
+      "currentValue": {
+        "title": "Current Assets",
+        "description": "Total portfolio value. Sum of cash + stock valuation."
+      },
+      "totalReturn": {
+        "title": "Total Return",
+        "description": "Overall return from initial capital. (Current Assets - Initial Capital) / Initial Capital * 100"
+      },
+      "maxDrawdown": {
+        "title": "Maximum Drawdown (MDD)",
+        "description": "Maximum decline from peak. Key risk management metric."
+      },
+      "tradingDays": {
+        "title": "Trading Days",
+        "description": "Number of days with actual trading activity."
+      },
+      "stockCash": {
+        "title": "Stock/Cash Ratio",
+        "description": "Ratio of stocks to cash in portfolio."
+      },
+      "winRate": {
+        "title": "Win Rate",
+        "description": "Percentage of profitable trades. Win rate alone doesn't determine profitability."
+      },
+      "avgWinR": {
+        "title": "Average Win R",
+        "description": "Average R-multiple for winning trades. R represents risk-reward ratio."
+      },
+      "avgLossR": {
+        "title": "Average Loss R",
+        "description": "Average R-multiple for losing trades. Ideally close to -1R."
+      },
+      "avgPositionsDay": {
+        "title": "Avg Positions/Day",
+        "description": "Average number of positions held per day."
+      },
+      "avgHolding": {
+        "title": "Avg Holding Period",
+        "description": "Average holding period for all positions."
+      },
+      "avgWinnerHolding": {
+        "title": "Winner Holding Period",
+        "description": "Average holding period for profitable positions."
+      },
+      "avgLoserHolding": {
+        "title": "Loser Holding Period",
+        "description": "Average holding period for losing positions."
+      },
+      "openPositions": {
+        "title": "Open Positions",
+        "description": "Current open positions. F=Freeroll (zero risk), R=positions with risk."
+      },
+      "portfolioOpenRisk": {
+        "title": "Portfolio Pure Risk",
+        "description": "Pure risk percentage of open positions. Based on distance to stop loss."
+      },
+      "portfolioNetRisk": {
+        "title": "Portfolio Total Risk",
+        "description": "Total risk including unrealized P&L. Negative means profit state."
+      },
+      "portfolioOpenRiskDollar": {
+        "title": "Pure Risk Amount",
+        "description": "Pure risk of current positions in dollar amount."
+      },
+      "portfolioNetRiskDollar": {
+        "title": "Total Risk Amount",
+        "description": "Total risk including unrealized P&L in dollar amount."
+      },
+      "expectancy": {
+        "title": "Expectancy",
+        "description": "Average expected return per trade. Must be positive for long-term profitability."
+      },
+      "expectancyR": {
+        "title": "Expectancy R",
+        "description": "Average expected R-multiple per trade. Above 0.3R indicates excellent system."
+      },
+      "payoffRatio": {
+        "title": "Payoff Ratio",
+        "description": "Ratio of average win to average loss. Above 1 means wins are larger than losses."
+      },
+      "avgRiskPerTrade": {
+        "title": "Avg Risk per Trade",
+        "description": "Average risk percentage per trade. 2% or less recommended."
+      },
+      "avgSizePerTrade": {
+        "title": "Avg Size per Trade",
+        "description": "Average position size relative to total assets."
+      },
+      "stdDevReturns": {
+        "title": "Return Std Deviation",
+        "description": "Volatility of returns. Lower is more stable."
+      },
+      "downsideDeviation": {
+        "title": "Downside Deviation",
+        "description": "Measures only downside volatility. Better for risk assessment."
+      },
+      "sharpeRatio": {
+        "title": "Sharpe Ratio",
+        "description": "Risk-adjusted excess return. Above 1 is good, above 2 is excellent."
+      },
+      "maxConsecutiveWins": {
+        "title": "Max Consecutive Wins",
+        "description": "Maximum number of consecutive winning trades."
+      },
+      "maxConsecutiveLosses": {
+        "title": "Max Consecutive Losses",
+        "description": "Maximum number of consecutive losing trades. Predicts psychological pressure."
+      },
+      "raroc": {
+        "title": "RAROC",
+        "description": "Risk-Adjusted Return on Capital. Evaluates return relative to risk taken."
+      }
+    }
+  },
+  "metricsTable": {
+    "columns": {
+      "categoryName": "Category / Metric",
+      "value": "Value",
+      "description": "Description"
+    },
+    "defaultCategories": {
+      "mainMetrics": "Main Metrics"
+    },
+    "categories": {
+      "profitability": "Profitability",
+      "risk": "Risk",
+      "position": "Position",
+      "time": "Time",
+      "asset": "Asset"
+    },
+    "period": {
+      "all": "All Trades",
+      "twoWeeks": "Last 2 Weeks",
+      "oneMonth": "Last Month",
+      "custom": "Custom"
+    },
+    "settings": {
+      "categoryManagement": "Category Management",
+      "addCategory": "Add Category",
+      "newCategory": "New Category",
+      "reset": "Reset",
+      "noCategories": "No categories. Please add one.",
+      "selectMetrics": "Select Metrics",
+      "select": "Select",
+      "delete": "Delete",
+      "edit": "Edit Metrics",
+      "metrics": "metrics",
+      "metricsCount": "{{count}} metrics",
+      "selectMetricsTitle": "Select metrics for \"{{categoryName}}\""
+    },
+    "emptyState": {
+      "noMetrics": "No metrics to display.",
+      "addCategoryPrompt": "Add categories and select metrics"
+    }
+  }
+}

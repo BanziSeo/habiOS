@@ -1,0 +1,164 @@
+/* 플로팅 프리뷰 컨테이너 */
+.floating-preview {
+  position: fixed;
+  background: var(--ant-color-bg-elevated);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--ant-color-border);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px var(--ant-color-bg-mask);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-preview.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.settings-page .floating-preview.minimized,
+.floating-preview.minimized.minimized {
+  height: 48px;
+  width: 200px;
+}
+
+.floating-preview.maximized {
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+/* 헤더 */
+.floating-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--ant-color-bg-container);
+  border-bottom: 1px solid var(--ant-color-border);
+  cursor: grab;
+  user-select: none;
+}
+
+.floating-preview.dragging .floating-preview-header {
+  cursor: grabbing;
+}
+
+.preview-drag-handle {
+  color: var(--ant-color-text-tertiary);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.preview-title {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ant-color-text-secondary);
+}
+
+/* 컨트롤 버튼 */
+.preview-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.preview-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--ant-color-fill-quaternary);
+  border: none;
+  color: var(--ant-color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+}
+
+.preview-btn:hover {
+  background: var(--ant-color-fill-secondary);
+  color: var(--ant-color-text);
+}
+
+.preview-btn-close:hover {
+  background: var(--ant-color-error-bg);
+  color: var(--ant-color-error);
+}
+
+/* 프리뷰 콘텐츠 */
+.floating-preview-content {
+  flex: 1;
+  background: var(--ant-color-bg-layout);
+  position: relative;
+  overflow: hidden;
+}
+
+.minimized .floating-preview-content {
+  display: none;
+}
+
+/* 리사이즈 핸들 - 우측 하단만 */
+.resize-handle-corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  cursor: nwse-resize;
+  background: transparent;
+  z-index: 10;
+  transition: opacity 0.2s ease;
+}
+
+.resize-handle-corner:hover {
+  opacity: 1;
+}
+
+.resize-handle-corner::after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--ant-color-border-secondary);
+  border-bottom: 2px solid var(--ant-color-border-secondary);
+}
+
+.resize-handle-corner:hover::after {
+  border-color: var(--ant-color-primary);
+  border-width: 3px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .floating-preview {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    width: auto !important;
+    max-height: 50vh;
+  }
+  
+  .resize-handle {
+    display: none;
+  }
+}

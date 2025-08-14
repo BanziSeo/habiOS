@@ -1,0 +1,163 @@
+.metrics-widget-v2 {
+  width: 100%;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.settings-btn {
+  opacity: 0.6;
+}
+
+.groups-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.metric-group {
+  border-radius: 6px;
+  padding: 12px;
+  min-height: 100px;
+  min-width: 200px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+}
+
+.group-title {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.group-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.metrics-list {
+  min-height: 50px;
+  padding: 8px 0;
+}
+
+.metric-item-wrapper {
+  width: 100%;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: move;
+  position: relative;
+  min-height: 100px;
+  height: 100px;
+}
+
+.metric-item .ant-statistic {
+  text-align: center;
+  width: 100%;
+}
+
+.metric-item .ant-statistic-title {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.metric-item .ant-statistic-content {
+  line-height: 1.2;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.metric-item:hover .remove-btn {
+  opacity: 0.6;
+  pointer-events: auto;
+}
+
+.remove-btn:hover {
+  opacity: 1;
+}
+
+.add-group-btn {
+  margin-top: 16px;
+  width: 100%;
+  border-style: dashed;
+}
+
+.empty-group {
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* 보조 정보 스타일 */
+.metric-secondary-info {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+/* 메트릭 아이템 간격 조정 */
+.metrics-list {
+  gap: 16px;
+}
+
+/* 그룹 간격 조정 */
+.groups-container {
+  gap: 20px;
+}
+
+/* 호버 효과 개선 */
+.metric-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 그룹 리사이즈 핸들 */
+.group-resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.group-resize-handle:hover {
+  background: rgba(0, 217, 130, 0.3);
+}
+
+.group-resize-handle.resizing {
+  background: var(--primary-color);
+}

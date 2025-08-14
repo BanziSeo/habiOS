@@ -1,0 +1,79 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+dist-electron
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.local
+.env.production
+DISCORD_AUTH_SETUP.md
+*AUTH*.md
+*.env
+
+# Backup files
+*.zip
+*.backup
+*.bak
+coverage/
+
+# Development files
+previous/
+CLAUDE.md
+
+# Project documentation
+previous/
+CLAUDE.md
+*_TODO.md
+TECHNICAL_DEBT.md
+REFACTOR_PLAN.md
+test-plan/
+healthcheck-results/
+healthcheck.md
+errors.md
+csvtest.md
+test_*.csv
+test_*.js
+MetricGroup.tsx
+*.png
+**/csvImport.backup*/
+**/dbNormalizer_backup*/
+
+# Project documentation
+previous/
+CLAUDE.md
+*_TODO.md
+TECHNICAL_DEBT.md
+REFACTOR_PLAN.md
+test-plan/
+healthcheck-results/
+healthcheck.md
+errors.md
+csvtest.md
+test_*.csv
+test_*.js
+MetricGroup.tsx
+*.png
+**/csvImport.backup*/
+**/dbNormalizer_backup*/

@@ -1,0 +1,50 @@
+{
+  "title": "Chart Book",
+  "description": "Manage and review your captured charts",
+  "filter": {
+    "searchPlaceholder": "Search ticker, memo, tags...",
+    "selectTicker": "Select Ticker",
+    "allTickers": "All Tickers",
+    "selectTimeframe": "Timeframe",
+    "allTimeframes": "All Timeframes",
+    "totalCharts": "Total {{count}} charts"
+  },
+  "empty": {
+    "noResults": "No search results",
+    "noCharts": "No saved charts"
+  },
+  "timeframes": {
+    "1m": "1 min",
+    "2m": "2 min",
+    "3m": "3 min",
+    "5m": "5 min",
+    "10m": "10 min",
+    "15m": "15 min",
+    "30m": "30 min",
+    "60m": "60 min",
+    "65m": "65 min",
+    "1d": "Daily",
+    "1wk": "Weekly"
+  },
+  "chartCard": {
+    "view": "View",
+    "viewLarge": "View Large",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this chart?",
+    "noMemo": "No memo"
+  },
+  "viewer": {
+    "title": "Chart Viewer",
+    "memo": "Memo",
+    "memoPlaceholder": "Add memo for this chart...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "close": "Close",
+    "noMemo": "No memo available",
+    "chartInfo": "Chart Information",
+    "avgPrice": "Average Price",
+    "currentPrice": "Current Price",
+    "indicators": "Indicators"
+  }
+}

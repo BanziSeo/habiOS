@@ -1,0 +1,175 @@
+.chart-settings-container {
+  width: 100%;
+  height: calc(100vh - 64px);
+  padding: 0;
+  position: relative;
+  overflow-y: auto;
+}
+
+.chart-settings-container .chart-settings-grid {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.settings-grid-item {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+.settings-grid-item:hover {
+  transition: all 0.2s;
+}
+
+.settings-drag-handle {
+  cursor: move;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.settings-drag-handle:hover {
+  transition: all 0.2s;
+}
+
+.settings-drag-handle:active {
+  transition: all 0.2s;
+}
+
+.settings-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 스크롤바 스타일 */
+.settings-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.settings-content::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+.settings-content::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+.settings-content::-webkit-scrollbar-thumb:hover {
+  /* hover styles will be applied via theme.useToken() */
+}
+
+/* 리사이즈 핸들 스타일 */
+.react-resizable-handle {
+  background-image: none;
+  z-index: 20;
+}
+
+.react-resizable-handle::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 0 0 4px 0;
+  transition: all 0.2s;
+}
+
+.settings-grid-item:hover .react-resizable-handle::after {
+  border-width: 3px;
+  width: 14px;
+  height: 14px;
+}
+
+/* 드래그 중 스타일 */
+.react-grid-item.react-grid-placeholder {
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* 컴포넌트 내부 스타일 조정 */
+.settings-content h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.settings-content .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.settings-content .ant-form-item-label > label {
+  /* color will be applied via theme.useToken() */
+}
+
+.settings-content .ant-card {
+  /* background and border will be applied via theme.useToken() */
+}
+
+.settings-content .ant-table {
+  background: transparent;
+}
+
+.settings-content .ant-table-thead > tr > th {
+  /* background, border, and color will be applied via theme.useToken() */
+}
+
+.settings-content .ant-table-tbody > tr > td {
+  /* border and color will be applied via theme.useToken() */
+}
+
+.settings-content .ant-table-tbody > tr:hover > td {
+  /* hover background will be applied via theme.useToken() */
+}
+
+/* Chart Preview 특별 스타일 */
+.settings-grid-item[data-grid*="chart-preview"] .settings-content {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Settings 페이지의 Tabs 스타일 */
+.ant-tabs-content {
+  height: 100%;
+}
+
+.ant-tabs-tabpane {
+  height: 100%;
+}
+
+/* 반응형 조정 */
+@media (max-width: 1400px) {
+  .chart-settings-container {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .settings-drag-handle {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .settings-content {
+    padding: 12px;
+  }
+}

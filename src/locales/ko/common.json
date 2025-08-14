@@ -1,0 +1,164 @@
+{
+  "button": {
+    "save": "저장",
+    "cancel": "취소",
+    "edit": "편집",
+    "delete": "삭제",
+    "add": "추가",
+    "close": "닫기",
+    "confirm": "확인",
+    "reset": "초기화",
+    "search": "검색",
+    "filter": "필터",
+    "export": "내보내기",
+    "import": "가져오기",
+    "refresh": "새로고침",
+    "more": "더보기",
+    "less": "접기",
+    "today": "오늘",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "errorDetails": "오류 상세 정보",
+  "goHome": "홈으로 이동",
+  "message": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "성공",
+    "saved": "저장되었습니다",
+    "deleted": "삭제되었습니다",
+    "noData": "데이터가 없습니다",
+    "confirmDelete": "정말 삭제하시겠습니까?",
+    "required": "필수 항목입니다",
+    "selectAccount": "계정을 선택해주세요"
+  },
+  "navigation": {
+    "journal": "매매일지",
+    "analysis": "거래 분석",
+    "chartBook": "차트북",
+    "equityCurve": "자산 곡선",
+    "csvImport": "CSV 가져오기",
+    "settings": "설정",
+    "account": "계좌",
+    "accountList": "계좌 목록"
+  },
+  "helpMode": {
+    "on": "도움말 ON",
+    "off": "도움말 OFF"
+  },
+  "status": {
+    "active": "활성",
+    "closed": "종료",
+    "pending": "대기중",
+    "completed": "완료",
+    "failed": "실패"
+  },
+  "position": "포지션",
+  "processingError": "처리 중 오류 발생",
+  "time": {
+    "today": "오늘",
+    "yesterday": "어제",
+    "thisWeek": "이번 주",
+    "lastWeek": "지난 주",
+    "thisMonth": "이번 달",
+    "lastMonth": "지난 달",
+    "custom": "사용자 지정",
+    "all": "전체 기간"
+  },
+  "account": {
+    "addAccount": "계좌 추가",
+    "accountAndSettings": "계좌 및 설정",
+    "create": "계좌 생성",
+    "createSuccess": "계좌가 성공적으로 생성되었습니다",
+    "deleteSuccess": "계좌가 성공적으로 삭제되었습니다",
+    "deleteFailed": "계좌 삭제에 실패했습니다",
+    "switchSuccess": "'{{name}}' 계좌로 전환되었습니다",
+    "newAccount": "새 계좌 추가",
+    "accountName": "계좌명",
+    "accountNameRequired": "계좌명을 입력해주세요",
+    "accountNamePlaceholder": "계좌명을 입력하세요",
+    "accountType": "계좌 유형",
+    "accountTypeRequired": "계좌 유형을 선택해주세요",
+    "accountTypePlaceholder": "계좌 유형을 선택하세요",
+    "accountTypeUS": "미국 주식",
+    "accountTypeKR": "한국 주식",
+    "currency": "통화",
+    "currencyRequired": "통화를 선택해주세요",
+    "currencyPlaceholder": "통화를 선택하세요",
+    "initialBalance": "초기 잔액",
+    "initialBalancePlaceholder": "초기 잔액을 입력하세요 (선택사항)",
+    "select": "계좌 선택",
+    "deleteConfirm": "계좌 삭제",
+    "deleteConfirmContent": "'{{name}}' 계좌를 삭제하시겠습니까? 모든 거래 기록이 함께 삭제됩니다.",
+    "realAccount": "실계좌",
+    "paperAccount": "모의계좌"
+  },
+  "modal": {
+    "editMode": "편집 모드",
+    "complete": "완료",
+    "positionDetail": "포지션 상세",
+    "tradeHistory": "거래 내역",
+    "chart": "차트",
+    "stopLoss": "스탑로스",
+    "positionMemo": "포지션 메모"
+  },
+  "positionMemo": {
+    "title": "포지션 메모",
+    "setupType": "셋업 타입",
+    "selectSetup": "셋업을 선택하세요",
+    "rating": "평가",
+    "memo": "메모",
+    "memoHelp": "진입 근거, 셋업 설명, 거래 후기 등을 자유롭게 작성하세요",
+    "memoPlaceholder": "이 포지션에 대한 메모를 입력하세요...",
+    "saveSuccess": "포지션 메모가 저장되었습니다",
+    "saveError": "포지션 메모 저장에 실패했습니다"
+  },
+  "cancel": "취소",
+  "create": "생성",
+  "common": {
+    "save": "저장",
+    "cancel": "취소"
+  },
+  "initialR": {
+    "editTitle": "Initial R 수정"
+  },
+  "positionDetail": {
+    "configureMetrics": "메트릭 설정",
+    "metricsSettingsHelp": "체크된 항목이 표시됩니다. 추가된 항목은 첫 번째 카테고리에 나타나며, 드래그로 이동할 수 있습니다."
+  },
+  "tableSettings": {
+    "title": "테이블 컬럼 설정",
+    "resetToDefault": "기본값으로 초기화",
+    "helpText": "체크박스로 컬럼을 표시/숨기고, 드래그로 순서를 변경할 수 있습니다.",
+    "loadError": "설정 로드 실패",
+    "loadErrorMessage": "테이블 설정을 불러올 수 없습니다."
+  },
+  "chartSettings": {
+    "title": "차트 설정",
+    "basicSettings": "차트 기본 설정",
+    "backgroundColor": "배경색",
+    "showGrid": "그리드 표시",
+    "gridColor": "그리드 색상",
+    "equityCurveLine": "Equity Curve 라인",
+    "color": "색상",
+    "lineWidth": "굵기"
+  },
+  "theme": {
+    "descriptions": {
+      "masterpiece-dark": "깊고 어두운 GitHub 스타일 테마",
+      "moonlight-mist": "달빛이 비친 안개 같은 은은한 블루 그레이",
+      "jade-garden": "옥(Jade) 정원을 연상시키는 깊은 녹색 톤",
+      "cyber-void": "사이버펑크 느낌의 깊은 보라빛 검정",
+      "soft-gray": "밝은 회색 기반으로 눈이 편안한 다크모드",
+      "purple-haze": "신비로운 퍼플 베이스의 독창적인 다크모드",
+      "arctic-twilight": "북극의 황혼을 연상시키는 차가운 블루 톤",
+      "volcanic-ash": "화산재를 연상시키는 따뜻한 회색톤",
+      "aurora": "그라데이션과 깊이감으로 프리미엄한 느낌",
+      "midnight-ocean": "GitHub 다크모드에서 영감을 받은 테마",
+      "carbon": "순수한 그레이스케일과 코랄 레드의 대비",
+      "deep-forest": "깊은 숲속의 에메랄드를 연상",
+      "cosmic-dust": "우주 먼지를 연상시키는 깊은 보라빛",
+      "sakura-night": "벚꽃빛 핑크와 깊은 밤의 조화"
+    }
+  }
+}

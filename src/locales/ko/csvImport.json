@@ -1,0 +1,58 @@
+{
+  "title": "CSV 임포트",
+  "description": "영웅문 Global CSV 파일에서 거래 내역을 가져옵니다.",
+  "importType": {
+    "title": "임포트 방식",
+    "append": "추가 임포트",
+    "appendDesc": "기존 데이터를 유지하고 새로운 거래만 추가합니다.",
+    "full": "완전 초기화",
+    "fullDesc": "모든 데이터를 삭제하고 새로 시작합니다.",
+    "currentAssets": "현재 총자산 ({{currency}})"
+  },
+  "fileUpload": {
+    "title": "CSV 파일 선택",
+    "dragText": "클릭하거나 파일을 드래그하여 업로드",
+    "hint": "영웅문 Global에서 다운로드한 CSV 파일만 지원됩니다.",
+    "fileSize": "파일 크기"
+  },
+  "button": {
+    "import": "임포트 시작",
+    "importing": "임포트 중..."
+  },
+  "result": {
+    "title": "임포트 결과",
+    "totalTrades": "총 거래 수",
+    "newTrades": "새로운 거래",
+    "duplicateTrades": "중복 거래",
+    "totalPositions": "총 포지션 수",
+    "newPositions": "새로운 포지션",
+    "updatedPositions": "업데이트된 포지션",
+    "savedTrades": "저장된 거래",
+    "skippedTrades": "건너뛴 거래",
+    "savedPositions": "저장된 포지션",
+    "skippedPositions": "건너뛴 포지션",
+    "importedPositions": "임포트된 포지션"
+  },
+  "table": {
+    "ticker": "종목",
+    "status": "상태",
+    "active": "활성",
+    "closed": "종료",
+    "tradeCount": "거래 수",
+    "avgBuyPrice": "평균 매수가",
+    "realizedPnl": "실현손익"
+  },
+  "error": {
+    "csvOnly": "CSV 파일만 업로드 가능합니다.",
+    "selectFile": "파일을 선택해주세요.",
+    "enterAssets": "완전 초기화 임포트 시 현재 총자산을 입력해주세요.",
+    "importError": "임포트 중 오류가 발생했습니다.",
+    "dbError": "데이터베이스 저장 중 오류 발생",
+    "someErrors": "임포트는 완료되었으나 일부 오류가 있습니다.",
+    "errors": "오류"
+  },
+  "success": {
+    "importComplete": "임포트 완료: {{savedTrades}}개 거래 저장, {{skippedTrades}}개 중복 건너뜀 / {{savedPositions}}개 포지션 저장, {{skippedPositions}}개 중복 건너뜀",
+    "importSuccess": "성공적으로 임포트했습니다: {{trades}}개 거래, {{positions}}개 포지션"
+  }
+}

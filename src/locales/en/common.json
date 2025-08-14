@@ -1,0 +1,147 @@
+{
+  "button": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm",
+    "reset": "Reset",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "refresh": "Refresh",
+    "more": "More",
+    "less": "Less",
+    "today": "Today",
+    "login": "Log in",
+    "logout": "Log out"
+  },
+  "errorDetails": "Error Details",
+  "goHome": "Go to Home",
+  "message": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "saved": "Saved successfully",
+    "deleted": "Deleted successfully",
+    "noData": "No data available",
+    "confirmDelete": "Are you sure you want to delete?",
+    "required": "This field is required",
+    "selectAccount": "Please select an account"
+  },
+  "navigation": {
+    "journal": "Journal",
+    "analysis": "Analysis",
+    "chartBook": "Chart Book",
+    "equityCurve": "Equity Curve",
+    "csvImport": "CSV Import",
+    "settings": "Settings",
+    "account": "Account",
+    "accountList": "Account List"
+  },
+  "helpMode": {
+    "on": "Help ON",
+    "off": "Help OFF"
+  },
+  "status": {
+    "active": "Active",
+    "closed": "Closed",
+    "pending": "Pending",
+    "completed": "Completed",
+    "failed": "Failed"
+  },
+  "position": "Position",
+  "processingError": "Error occurred during processing",
+  "time": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisWeek": "This Week",
+    "lastWeek": "Last Week",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "custom": "Custom",
+    "all": "All Time"
+  },
+  "account": {
+    "addAccount": "Add Account",
+    "accountAndSettings": "Account & Settings",
+    "createSuccess": "Account created successfully",
+    "deleteSuccess": "Account deleted successfully",
+    "deleteFailed": "Failed to delete account",
+    "switchSuccess": "Switched to '{{name}}' account",
+    "newAccount": "Add New Account",
+    "accountName": "Account Name",
+    "accountType": "Account Type",
+    "realAccount": "Real Account",
+    "paperAccount": "Paper Account"
+  },
+  "modal": {
+    "editMode": "Edit Mode",
+    "complete": "Complete",
+    "positionDetail": "Position Detail",
+    "tradeHistory": "Trade History",
+    "chart": "Chart",
+    "stopLoss": "Stop Loss",
+    "positionMemo": "Position Memo"
+  },
+  "positionMemo": {
+    "title": "Position Memo",
+    "setupType": "Setup Type",
+    "selectSetup": "Select a setup",
+    "rating": "Rating",
+    "memo": "Memo",
+    "memoHelp": "Feel free to write entry rationale, setup description, trading review, etc.",
+    "memoPlaceholder": "Enter memo for this position...",
+    "saveSuccess": "Position memo saved successfully",
+    "saveError": "Failed to save position memo"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "initialR": {
+    "editTitle": "Edit Initial R"
+  },
+  "positionDetail": {
+    "configureMetrics": "Configure Metrics",
+    "metricsSettingsHelp": "Checked items will be displayed. Added items appear in the first category and can be moved by dragging."
+  },
+  "tableSettings": {
+    "title": "Table Column Settings",
+    "resetToDefault": "Reset to Default",
+    "helpText": "Use checkboxes to show/hide columns and drag to reorder them.",
+    "loadError": "Settings Load Failed",
+    "loadErrorMessage": "Unable to load table settings."
+  },
+  "chartSettings": {
+    "title": "Chart Settings",
+    "basicSettings": "Basic Chart Settings",
+    "backgroundColor": "Background Color",
+    "showGrid": "Show Grid",
+    "gridColor": "Grid Color",
+    "equityCurveLine": "Equity Curve Line",
+    "color": "Color",
+    "lineWidth": "Line Width"
+  },
+  "theme": {
+    "descriptions": {
+      "masterpiece-dark": "Deep and dark GitHub style theme",
+      "moonlight-mist": "Subtle blue-gray like moonlit mist",
+      "jade-garden": "Deep green tones reminiscent of jade gardens",
+      "cyber-void": "Cyberpunk-inspired deep purple black",
+      "soft-gray": "Eye-friendly dark mode with bright gray base",
+      "purple-haze": "Mysterious purple-based unique dark mode",
+      "arctic-twilight": "Cold blue tones reminiscent of arctic twilight",
+      "volcanic-ash": "Warm gray tones reminiscent of volcanic ash",
+      "aurora": "Premium feel with gradients and depth",
+      "midnight-ocean": "Theme inspired by GitHub dark mode",
+      "carbon": "Contrast of pure grayscale and coral red",
+      "deep-forest": "Reminiscent of emeralds in deep forests",
+      "cosmic-dust": "Deep purple reminiscent of cosmic dust",
+      "sakura-night": "Harmony of cherry blossom pink and deep night"
+    }
+  }
+}

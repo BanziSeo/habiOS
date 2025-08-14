@@ -1,0 +1,42 @@
+{
+  "title": "Equity Curve",
+  "selectAccount": "Please select an account",
+  "tradingDays": "Trading Days: {{count}}",
+  "controls": {
+    "percentage": "Show Percentage",
+    "period": "Period",
+    "benchmark": "Benchmark",
+    "settings": "Settings"
+  },
+  "benchmark": {
+    "spy": "S&P 500 (SPY)",
+    "qqq": "NASDAQ 100 (QQQ)",
+    "dia": "Dow Jones (DIA)",
+    "iwm": "Russell 2000 (IWM)",
+    "vti": "Total Market (VTI)",
+    "kospi": "KOSPI",
+    "kosdaq": "KOSDAQ",
+    "loading": "Loading benchmark data..."
+  },
+  "settings": {
+    "title": "Chart Settings",
+    "movingAverages": "Moving Averages",
+    "ma20": "20-day MA",
+    "ma50": "50-day MA",
+    "ma100": "100-day MA",
+    "ma200": "200-day MA",
+    "drawdown": "Show Drawdown",
+    "gridLines": "Show Grid Lines",
+    "basicSettings": "Basic Settings",
+    "backgroundColor": "Background Color",
+    "gridColor": "Grid Color",
+    "equityCurveLine": "Equity Curve Line",
+    "color": "Color",
+    "lineWidth": "Line Width",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "noData": "No data available. Please import CSV."
+  }
+}

@@ -1,0 +1,263 @@
+/* Global Edit Mode Styles */
+
+/* Edit mode indicator */
+.edit-mode-active {
+  position: relative;
+  /* 그리드 라인 표시 */
+  background-image: 
+    linear-gradient(rgba(var(--ant-color-primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--ant-color-primary-rgb), 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: -1px -1px;
+}
+
+.edit-mode-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: var(--grid-placeholder-border, 2px dashed var(--ant-color-primary));
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+  animation: editModePulse 2s ease-in-out infinite;
+}
+
+@keyframes editModePulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Edit mode overlay */
+.edit-mode-overlay {
+  position: fixed;
+  top: 64px; /* Below header */
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.edit-mode-overlay-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.edit-mode-overlay-hint {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Widget edit mode */
+.widget-edit-mode {
+  position: relative;
+  height: 100%;
+}
+
+.widget-edit-mode .widget-content {
+  /* 편집 모드에서도 내용이 잘 보이도록 opacity 제거 */
+  /* 스크롤과 내용 확인은 가능하되, 드래그는 핸들에서만 */
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Edit mode header - overlay 방식 */
+.widget-edit-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.widget-edit-mode .widget-drag-handle {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px 8px 0 0;
+  cursor: move;
+  padding: 0 16px;
+  gap: 12px;
+  transition: all 0.2s ease;
+  opacity: 0.85;
+}
+
+.widget-edit-mode .widget-drag-handle:hover {
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.widget-edit-mode .widget-drag-handle::before {
+  content: '⋮⋮';
+  font-size: 20px;
+  color: var(--resize-handle-color, var(--ant-color-success));
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.widget-edit-mode .widget-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide resize handles in normal mode */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  display: none;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+  background: transparent;
+  z-index: 10;
+}
+
+/* 리사이즈 핸들이 항상 가장 아래에 위치하도록 */
+.react-grid-item {
+  position: relative;
+}
+
+/* React Grid Layout overrides for edit mode */
+.edit-mode-active .react-grid-item {
+  transition: all 200ms ease;
+  border: 2px solid transparent;
+}
+
+.edit-mode-active .react-grid-item:hover:not(.react-draggable-dragging) {
+  box-shadow: var(--hover-shadow, 0 4px 20px var(--ant-color-success-bg));
+  border: 2px solid rgba(var(--ant-color-primary-rgb), 0.3);
+  transform: translateY(-2px);
+  transition: all 200ms ease;
+}
+
+.edit-mode-active .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  display: block;
+  opacity: 0.8;
+  background: linear-gradient(135deg, transparent 50%, var(--ant-color-primary) 50%);
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+  z-index: 10000;
+  position: absolute;
+  pointer-events: all;
+}
+
+/* 리사이즈 핸들이 위젯 컨테이너 밖에 나타나도록 */
+.edit-mode-active .react-grid-item {
+  overflow: visible;
+}
+
+.edit-mode-active .react-grid-item > .react-resizable-handle.react-resizable-handle-se::after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 3px solid var(--resize-handle-color, var(--ant-color-success));
+  border-bottom: 3px solid var(--resize-handle-color, var(--ant-color-success));
+}
+
+/* Ensure widget containers don't block resize handles */
+.edit-mode-active .widget-container {
+  /* 편집 모드에서도 위젯 내용과 상호작용 가능 */
+  pointer-events: auto;
+}
+
+.edit-mode-active .widget-container > * {
+  pointer-events: auto;
+}
+
+/* placeholder 숨기기 */
+.edit-mode-active .react-grid-item.react-grid-placeholder {
+  display: none;
+}
+
+/* 드래그 중인 아이템 스타일 */
+.edit-mode-active .react-grid-item.react-draggable-dragging {
+  opacity: 0.7;
+  z-index: 100;
+  transition: none;
+  transform: scale(1.02);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(var(--ant-color-primary-rgb), 0.4);
+  cursor: grabbing !important;
+}
+
+/* 드래그 중인 아이템의 원래 위치 표시 */
+.edit-mode-active .react-grid-item.react-draggable-dragging::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px dashed rgba(var(--ant-color-warning-rgb), 0.5);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+
+/* Focus indicators for keyboard navigation */
+.focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-success));
+  outline-offset: 2px;
+}
+
+.ant-btn:focus-visible,
+.ant-input:focus-visible,
+.ant-select-selector:focus-visible,
+.ant-checkbox-wrapper:focus-visible,
+.ant-radio-wrapper:focus-visible,
+.ant-switch:focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-success));
+  outline-offset: 2px;
+}
+
+/* Table focus styles */
+.ant-table-row:focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-primary));
+  outline-offset: -2px;
+}
+
+.ant-table-cell:focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-primary));
+  outline-offset: -2px;
+}
+
+/* Menu focus styles */
+.ant-menu-item:focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-primary));
+  outline-offset: -2px;
+}
+
+/* Modal focus trap */
+.ant-modal-wrap:focus-visible {
+  outline: none;
+}
+
+.ant-modal-content:focus-visible {
+  outline: 2px solid var(--grid-focus-outline, var(--ant-color-primary));
+  outline-offset: 2px;
+}

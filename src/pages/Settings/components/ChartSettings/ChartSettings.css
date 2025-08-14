@@ -1,0 +1,317 @@
+/* 차트 설정 컨테이너 */
+.chart-settings-container {
+  max-width: 900px;  /* 800px에서 900px로 증가 */
+}
+
+/* 설정 그룹 */
+.settings-group {
+  margin-bottom: 40px;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.group-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ant-color-text);
+  letter-spacing: -0.02em;
+}
+
+.group-icon {
+  font-size: 20px;
+  color: var(--ant-color-primary);
+}
+
+/* 설정 카드 */
+.settings-card {
+  background: var(--ant-color-bg-container) ;  /* L3: 카드 계층 */
+  border: 1px solid var(--ant-color-border) ;
+  border-radius: 12px ;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.settings-card:hover {
+  border-color: var(--ant-color-primary-border-hover) ;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.settings-card .ant-card-body {
+  padding: 24px ;
+}
+
+/* 카드 내부 섹션 제목 */
+.settings-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ant-color-text);
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+/* 폼 요소 */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-size: 14px;
+  color: var(--ant-color-text-secondary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-select {
+  min-width: 150px;
+}
+
+.form-input {
+  min-width: 100px;
+}
+
+/* Ant Design 오버라이드 */
+.settings-card .ant-select-selector {
+  background: var(--ant-color-bg-layout) ;  /* L2: 입력 필드 - 카드보다 약간 어둡게 */
+  border: 1px solid var(--ant-color-border) ;
+  color: var(--ant-color-text) ;
+}
+
+.settings-card .ant-select-selector:hover {
+  border-color: var(--ant-color-primary-border-hover) ;
+}
+
+.settings-card .ant-select-focused .ant-select-selector {
+  border-color: var(--ant-color-primary) ;
+  box-shadow: 0 0 0 3px var(--ant-color-primary-bg) ;
+}
+
+.settings-card .ant-input-number {
+  background: var(--ant-color-fill-tertiary) ;
+  border: 1px solid var(--ant-color-border) ;
+  color: var(--ant-color-text) ;
+}
+
+.settings-card .ant-input-number:hover {
+  border-color: var(--ant-color-primary-border-hover) ;
+}
+
+.settings-card .ant-input-number-focused {
+  border-color: var(--ant-color-primary) ;
+  box-shadow: 0 0 0 3px var(--ant-color-primary-bg) ;
+}
+
+.settings-card .ant-input-number-input {
+  color: var(--ant-color-text) ;
+}
+
+/* 스위치 */
+.settings-card .ant-switch {
+  background: var(--ant-color-fill-tertiary) ;
+}
+
+.settings-card .ant-switch-checked {
+  background: var(--ant-color-primary) ;
+}
+
+/* 컬러 피커 */
+.settings-card .ant-color-picker-trigger {
+  width: 40px;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.settings-card .ant-color-picker-trigger:hover {
+  transform: translateY(-1px);
+}
+
+.settings-card .ant-color-picker-trigger-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.color-code {
+  font-size: 12px;
+  font-family: 'Monaco', monospace;
+}
+
+/* 타임프레임 단축키 */
+.timeframe-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.shortcut-grid-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.shortcut-grid-item:hover {
+  transition: all 0.2s ease;
+}
+
+.shortcut-key-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 32px;
+  background: rgba(0, 217, 130, 0.1);
+  border: 1px solid rgba(0, 217, 130, 0.2);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00D982;
+  flex-shrink: 0;
+}
+
+.shortcut-timeframe-select {
+  flex: 1;
+}
+
+.shortcut-timeframe-select .ant-select-selector {
+  background: #1A1A1A ;
+  border-color: rgba(255, 255, 255, 0.08) ;
+  height: 32px ;
+}
+
+.shortcut-timeframe-select .ant-select-selector:hover {
+  border-color: rgba(255, 255, 255, 0.15) ;
+}
+
+.shortcut-timeframe-select.ant-select-focused .ant-select-selector {
+  border-color: #00D982 ;
+  box-shadow: 0 0 0 2px rgba(0, 217, 130, 0.1) ;
+}
+
+.shortcut-timeframe-select .ant-select-selection-placeholder {
+  color: rgba(255, 255, 255, 0.4) ;
+}
+
+.shortcut-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+/* 차트 단축키 스타일 */
+.chart-shortcuts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shortcuts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.shortcuts-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.shortcuts-category {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shortcuts-category h4 {
+  margin: 0 0 8px 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.shortcut-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shortcut-item:last-child {
+  border-bottom: none;
+}
+
+.shortcut-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.shortcut-key {
+  display: flex;
+  align-items: center;
+}
+
+.shortcut-input {
+  padding: 4px 8px;
+  background: var(--ant-color-fill-tertiary);
+  border: 1px solid var(--ant-color-border);
+  border-radius: 4px;
+  color: var(--ant-color-text);
+  font-size: 13px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  width: 140px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.shortcut-input:hover {
+  background: var(--ant-color-fill-secondary);
+  border-color: var(--ant-color-primary-border-hover);
+}
+
+.shortcut-input:focus {
+  outline: none;
+  background: var(--ant-color-fill-secondary);
+  border-color: var(--ant-color-primary);
+  box-shadow: 0 0 0 2px var(--ant-color-primary-bg);
+}
+
+.shortcut-key-static {
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  cursor: not-allowed;
+}
+

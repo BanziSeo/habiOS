@@ -1,0 +1,272 @@
+/* Responsive Design System for Desktop
+   Breakpoints:
+   - xs: < 768px (small windows, split screen)
+   - sm: 768px - 1024px (compact desktop)
+   - md: 1024px - 1440px (standard desktop)
+   - lg: 1440px - 1920px (large desktop)
+   - xl: > 1920px (ultra-wide monitors)
+*/
+
+/* CSS Variables for responsive values */
+:root {
+  /* Spacing scale */
+  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1vw, 0.75rem);
+  --space-md: clamp(0.75rem, 1.5vw, 1rem);
+  --space-lg: clamp(1rem, 2vw, 1.5rem);
+  --space-xl: clamp(1.5rem, 3vw, 2rem);
+  
+  /* Font sizes */
+  --font-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 1.75vw, 1rem);
+  --font-base: clamp(1rem, 2vw, 1.125rem);
+  --font-lg: clamp(1.125rem, 2.5vw, 1.5rem);
+  --font-xl: clamp(1.5rem, 3vw, 2rem);
+  --font-2xl: clamp(2rem, 4vw, 3rem);
+  
+  /* Widget dimensions */
+  --widget-min-width: 280px;
+  --widget-max-width: 600px;
+  
+  /* Grid gaps */
+  --grid-gap: clamp(0.5rem, 1vw, 1rem);
+  
+  /* Sidebar widths */
+  --sidebar-width: 200px;
+  --sidebar-collapsed-width: 80px;
+}
+
+/* Container queries polyfill fallback using viewport units */
+.responsive-container {
+  width: 100%;
+  padding: var(--space-md);
+}
+
+/* Grid system for widgets */
+.widget-grid {
+  display: grid;
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+/* Default grid - 4 columns */
+.widget-grid {
+  grid-template-columns: repeat(auto-fit, minmax(var(--widget-min-width), 1fr));
+}
+
+/* Responsive grid columns based on container width */
+@media (max-width: 768px) {
+  .widget-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .widget-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .widget-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .widget-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive typography */
+.metric-value {
+  font-size: var(--font-xl);
+  font-weight: 600;
+}
+
+.metric-label {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.widget-title {
+  font-size: var(--font-lg);
+  font-weight: 500;
+}
+
+/* Responsive tables */
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.responsive-table .ant-table {
+  min-width: 600px;
+}
+
+/* Hide columns on smaller screens */
+@media (max-width: 1024px) {
+  .hide-on-compact {
+    display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .hide-on-medium {
+    display: none;
+  }
+}
+
+/* Responsive cards */
+.ant-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.ant-card-body {
+  padding: var(--space-md);
+}
+
+/* Responsive modals */
+.ant-modal {
+  max-width: 90vw;
+}
+
+.ant-modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Responsive buttons */
+.ant-btn {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-sm);
+}
+
+/* Main layout responsive adjustments */
+.ant-layout-content {
+  padding: var(--space-lg);
+  min-height: calc(100vh - 64px);
+}
+
+@media (max-width: 768px) {
+  .ant-layout-content {
+    padding: var(--space-sm);
+  }
+}
+
+/* Sidebar responsive behavior */
+.ant-layout-sider-collapsed + .ant-layout {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+.ant-layout-sider:not(.ant-layout-sider-collapsed) + .ant-layout {
+  margin-left: var(--sidebar-width);
+}
+
+/* Widget container responsive */
+.widget-container {
+  height: auto;
+  min-height: 200px;
+}
+
+/* Flex layouts for better responsiveness */
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+}
+
+.flex-responsive > * {
+  flex: 1 1 var(--widget-min-width);
+}
+
+/* Responsive statistic components */
+.ant-statistic-title {
+  font-size: var(--font-sm);
+}
+
+/* Responsive form layouts */
+.ant-form-horizontal .ant-form-item-label {
+  flex: 0 0 clamp(100px, 20%, 200px);
+}
+
+/* Settings page responsive */
+.settings-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.settings-section {
+  margin-bottom: var(--space-xl);
+}
+
+/* Analysis page responsive grid */
+.analysis-grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+@media (max-width: 900px) {
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Chart responsive */
+.chart-container {
+  width: 100%;
+  height: clamp(300px, 40vh, 600px);
+}
+
+/* Responsive utilities */
+.text-responsive {
+  font-size: var(--font-base);
+}
+
+.spacing-responsive {
+  margin: var(--space-md);
+  padding: var(--space-md);
+}
+
+/* Hide scrollbar on small containers but keep functionality */
+.slim-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-secondary) transparent;
+}
+
+.slim-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.slim-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 3px;
+}
+
+/* Responsive dropdown menus */
+.ant-dropdown-menu {
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Compact mode for smaller screens */
+@media (max-width: 1024px) {
+  .compact-mode .ant-table-cell {
+    padding: 8px;
+  }
+  
+  .compact-mode .ant-btn {
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+  
+  .compact-mode .ant-card-head {
+    min-height: 38px;
+    padding: 0 16px;
+  }
+}

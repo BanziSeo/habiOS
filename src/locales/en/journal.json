@@ -1,0 +1,117 @@
+{
+  "header": {
+    "title": "Trading Journal",
+    "dateSelector": {
+      "today": "Today",
+      "selectDate": "Select Date",
+      "noTradesOn": "No trades on {{date}}"
+    },
+    "viewMode": "View Mode",
+    "hideAll": "Hide All",
+    "showAll": "Show All"
+  },
+  "widget": {
+    "dailyRisk": {
+      "title": "Daily Risk Limit",
+      "targetLimit": "Target Limit",
+      "currentUsage": "Current Usage",
+      "remainingLimit": "Remaining Limit",
+      "exceededAmount": "Exceeded Amount",
+      "usage": "Usage",
+      "exceeded": "Exceeded",
+      "available": "Available for new entries",
+      "adjustmentNeeded": "Position adjustment needed",
+      "todaysLimit": "Today's risk limit",
+      "existingNew": "Existing {{existing}}% + New {{new}}%",
+      "enterPercent": "Target Risk Limit (%)"
+    },
+    "dailyPnl": {
+      "title": "Today's Realized P&L",
+      "existing": "Existing Positions",
+      "new": "New Positions",
+      "total": "Total Realized P&L"
+    },
+    "dailyNotes": {
+      "title": "Daily Notes",
+      "placeholder": "Today's strategy, notes, etc...",
+      "doubleClickToEdit": "Double-click to add notes..."
+    },
+    "todayTrades": {
+      "title": "Today's Trades",
+      "noTrades": "No trades today",
+      "expandAll": "Expand All",
+      "collapseAll": "Collapse All"
+    },
+    "metrics": {
+      "title": "Dashboard Metrics",
+      "lastWeeks": "Last 2 Weeks",
+      "lastMonth": "Last Month",
+      "custom": "Custom",
+      "allTrades": "All Trades",
+      "addCategories": "Add Categories"
+    },
+    "positions": {
+      "title": "Positions",
+      "active": "Active",
+      "closed": "Closed",
+      "columns": {
+        "ticker": "Ticker",
+        "setup": "Setup",
+        "entryDate": "Entry Date",
+        "exitDate": "Exit Date",
+        "shares": "Shares",
+        "avgPrice": "Avg Price",
+        "currentPrice": "Current",
+        "realizedPnl": "Realized P&L",
+        "unrealizedPnl": "Unrealized P&L",
+        "pnlPercent": "P&L %",
+        "aum": "AUM",
+        "rMultiple": "R-Multiple"
+      }
+    }
+  },
+  "todayTrading": {
+    "title": "Today's Trading",
+    "goToToday": "Go to Today",
+    "selectDate": "Select Date",
+    "loading": "Loading data...",
+    "selectAccount": "Please select an account",
+    "dailyPlan": {
+      "title": "Daily Plan",
+      "edit": "Edit",
+      "dailyRiskLimit": "Daily Risk Limit",
+      "riskUsage": "Risk Usage",
+      "currentPnL": "Current P&L",
+      "watchlist": "Watchlist",
+      "watchlistPlaceholder": "AAPL, MSFT, NVDA...",
+      "memo": "Memo",
+      "memoPlaceholder": "Today's strategy, notes, etc...",
+      "none": "None",
+      "save": "Save",
+      "cancel": "Cancel",
+      "savingPlan": "Saving plan...",
+      "saveSuccess": "Daily plan saved successfully.",
+      "saveError": "Failed to save daily plan.",
+      "loadError": "Failed to load daily plan."
+    },
+    "activePositions": {
+      "title": "Active Positions",
+      "noPositions": "No active positions"
+    },
+    "trades": {
+      "title": "{{date}} Trades",
+      "noTrades": "No trades on {{date}}"
+    },
+    "columns": {
+      "ticker": "Ticker",
+      "shares": "Shares",
+      "entryPrice": "Entry Price",
+      "currentPrice": "Current",
+      "pnl": "P&L",
+      "time": "Time",
+      "tradeType": "Trade Type",
+      "price": "Price",
+      "commission": "Commission"
+    }
+  }
+}

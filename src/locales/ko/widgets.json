@@ -1,0 +1,422 @@
+{
+  "common": {
+    "expand": "펼치기",
+    "collapse": "접기",
+    "settings": "설정"
+  },
+  "positionDetail": {
+    "categories": {
+      "tradingInfo": "거래 정보",
+      "riskManagement": "리스크 관리",
+      "performanceMetrics": "성과 지표"
+    },
+    "metrics": {
+      "entry": "진입",
+      "exit": "청산",
+      "avgPrice": "평단가",
+      "currentShares": "현재 수량",
+      "maxShares": "최대 보유 수량",
+      "initialR": "초기 R",
+      "aumInitialRisk": "최대리스크%",
+      "pureRisk": "오픈 리스크",
+      "pureRiskDollar": "오픈 리스크 금액",
+      "totalRisk": "넷 리스크",
+      "totalRiskDollar": "넷 리스크 금액",
+      "rMultiple": "R배수",
+      "realizedPnl": "실현 손익",
+      "aumPnl": "자산 대비 손익 %",
+      "size": "사이즈 %",
+      "maxSize": "최대 사이즈 %"
+    },
+    "settings": {
+      "title": "포지션 상세 설정",
+      "addCategory": "카테고리 추가",
+      "categoryName": "카테고리 이름",
+      "selectMetrics": "지표 선택",
+      "quickStats": "빠른 통계",
+      "delete": "삭제",
+      "cancel": "취소",
+      "save": "저장"
+    }
+  },
+  "tradeHistory": {
+    "quickStats": {
+      "totalTrades": "총 거래",
+      "size": "사이즈",
+      "maxSize": "최대 사이즈",
+      "netPnl": "순손익"
+    },
+    "columns": {
+      "dateTime": "날짜/시간",
+      "type": "구분",
+      "quantity": "수량",
+      "price": "가격",
+      "amount": "금액",
+      "size": "사이즈",
+      "pnl": "손익",
+      "aumPnl": "자산 대비 손익"
+    }
+  },
+  "stopLoss": {
+    "title": "스탑로스 설정",
+    "titleWithTicker": "스탑로스 설정 ({{ticker}})",
+    "noSL": "No SL",
+    "multiSL": "Multi SL",
+    "partial": "Partial",
+    "warning": {
+      "overCoverage": "스탑로스 업데이트 필요 ({{coverage}}%)",
+      "underCoverage": "스탑로스 업데이트 필요 ({{coverage}}%)"
+    },
+    "header": {
+      "position": "포지션",
+      "quantity": "보유 수량",
+      "positionSize": "포지션 크기",
+      "expectedRisk": "예상 리스크",
+      "pureRisk": "오픈 리스크"
+    },
+    "messages": {
+      "saveSuccess": "스톱로스가 저장되고 현재 리스크가 Initial R로 설정되었습니다",
+      "saveSuccessSimple": "스톱로스가 저장되었습니다",
+      "saveError": "스톱로스 저장에 실패했습니다",
+      "noValidStopLoss": "유효한 스탑로스가 없습니다",
+      "initialRSet": "현재 스탑로스 설정의 리스크(${{amount}})가 Initial R로 설정되었습니다",
+      "initialRSetFailed": "Initial R 설정에 실패했습니다",
+      "riskConfirmTitle": "리스크 확인",
+      "riskExceeds2Percent": "포지션 리스크가 {{risk}}%로 일반적인 리스크 관리 기준(2%)를 초과합니다",
+      "riskExceedsInitial": "새로운 리스크가 기존 최대 리스크보다 {{percent}}% 높습니다",
+      "continueQuestion": "계속하시겠습니까?",
+      "risk": "리스크"
+    },
+    "actions": {
+      "setAsInitialR": "Initial R로 설정",
+      "save": "저장",
+      "confirm": "확인",
+      "cancel": "취소"
+    },
+    "tooltip": {
+      "initialR": "체크하면 현재 스톱로스의 리스크가 이 포지션의 Initial R(최대 리스크)로 설정됩니다"
+    },
+    "form": {
+      "noStopLoss": "스톱로스가 설정되지 않았습니다",
+      "addStopLoss": "스톱로스 추가",
+      "add": "추가",
+      "inputByRatio": "비율로 입력",
+      "inputByQuantity": "수량으로 입력",
+      "price": "가격",
+      "quantity": "수량",
+      "shares": "주"
+    }
+  },
+  "chart": {
+    "preview": "(미리보기)",
+    "capture": "캡쳐",
+    "error": "차트 오류",
+    "successAlert": {
+      "title": "차트 캡쳐 성공",
+      "description": "차트가 차트북에 저장되었습니다"
+    },
+    "tradeMarkers": {
+      "buy": "매수",
+      "sell": "매도"
+    },
+    "timeframes": {
+      "1m": "1분",
+      "2m": "2분",
+      "3m": "3분",
+      "5m": "5분",
+      "10m": "10분",
+      "15m": "15분",
+      "30m": "30분",
+      "60m": "1시간",
+      "65m": "65분",
+      "1d": "일봉",
+      "1wk": "주봉"
+    }
+  },
+  "dailyRiskLimit": {
+    "downsideOnlyTooltip": "손실만 계산, 이익 무시 (보수적)",
+    "withUpsideTooltip": "손실에서 이익을 차감 (실제 순위험)"
+  },
+  "common": {
+    "startDate": "시작일",
+    "endDate": "종료일"
+  },
+  "positionTable": {
+    "noActivePositions": "활성 포지션이 없습니다",
+    "noClosedPositions": "종료된 포지션이 없습니다",
+    "totalPositions": "Total {{total}} positions",
+    "setSL": "Set SL",
+    "activePositionsTab": "활성 포지션 ({{count}})",
+    "closedPositionsTab": "종료된 포지션 ({{count}})"
+  },
+  "todayTrades": {
+    "noTrades": "{{date}} 거래 내역이 없습니다",
+    "tradesCount": "{{count}}건",
+    "timeColumn": "시간",
+    "tradeColumn": "매매",
+    "individualViewNotReady": "개별 거래 뷰는 준비 중입니다."
+  },
+  "dailyRiskLimit": {
+    "selectAccount": "계정을 선택해주세요",
+    "title": "일일 리스크 한도",
+    "exceeded": "초과",
+    "targetLimit": "목표 한도",
+    "targetLimitDesc": "오늘의 리스크 한도",
+    "currentUsage": "현재 사용량",
+    "currentUsageDesc": "기존 {{existing}}% + 신규 {{new}}%",
+    "exceededAmount": "초과 금액",
+    "remainingLimit": "남은 한도",
+    "positionAdjustNeeded": "포지션 조정 필요",
+    "availableForNew": "신규 진입 가능",
+    "downsideOnly": "손실만 계산",
+    "withUpside": "손익 상계",
+    "downsideOnlyDesc": "모든 이익을 무시하고 손실과 위험만 계산합니다. 가장 보수적인 리스크 관리 방식입니다.",
+    "withUpsideDesc": "실현 이익을 리스크에서 차감하여 실제 순위험을 계산합니다. 수학적으로 정확한 계산 방식입니다.",
+    "positionBreakdown": "포지션 분류",
+    "targetRiskLimitPercent": "목표 리스크 한도 (%)",
+    "cancel": "취소",
+    "save": "저장",
+    "usage": "사용률",
+    "todayRealizedPnl": "오늘 실현 손익",
+    "overnightActive": "전일 보유 활성",
+    "overnightClosed": "전일 보유 청산",
+    "todayActive": "당일 신규 활성",
+    "todayClosed": "당일 신규 청산"
+  },
+  "dailyPnl": {
+    "selectAccount": "계정을 선택해주세요",
+    "totalRealizedPnl": "총 실현 손익",
+    "existingPositions": "기존 포지션",
+    "newPositions": "신규 포지션"
+  },
+  "dailyNotes": {
+    "selectAccount": "계정을 선택해주세요",
+    "cancel": "취소",
+    "save": "저장",
+    "placeholder": "오늘의 전략, 메모 등...",
+    "emptyText": "더블클릭하여 메모 추가..."
+  },
+  "metricsWidget": {
+    "periods": {
+      "twoWeeks": "최근 2주",
+      "oneMonth": "최근 1개월",
+      "custom": "사용자 지정",
+      "allTrades": "전체 거래"
+    },
+    "addCategories": "카테고리 추가",
+    "settings": {
+      "title": "대시보드 메트릭 설정",
+      "fontSize": {
+        "title": "폰트 크기 설정",
+        "category": "카테고리명",
+        "metricName": "지표명",
+        "mainValue": "메인 수치",
+        "subValue": "서브 수치",
+        "bold": "굵게"
+      },
+      "preview": {
+        "title": "미리보기",
+        "sampleCategory": "미리보기",
+        "sampleMetric": "승률",
+        "sampleValue": "22.2%",
+        "sampleSubValue": "34승 / 119패"
+      },
+      "selectMetrics": "표시할 메트릭 선택"
+    },
+    "groups": {
+      "portfolioOverview": "포트폴리오 개요",
+      "performanceMetrics": "성과 지표",
+      "riskManagement": "리스크 관리"
+    },
+    "metrics": {
+      "currentValue": "현재 가치",
+      "totalReturn": "총 수익률",
+      "maxDrawdown": "최대 낙폭",
+      "tradingDays": "거래일수",
+      "stockCash": "주식 / 현금",
+      "winRate": "승률",
+      "avgWinR": "평균 승리 R",
+      "avgLossR": "평균 손실 R",
+      "avgPositionsDay": "일평균 거래",
+      "avgHolding": "평균 보유",
+      "avgWinnerHolding": "승리 보유기간",
+      "avgLoserHolding": "손실 보유기간",
+      "openPositions": "오픈 포지션",
+      "portfolioOpenRisk": "포트폴리오 오픈 리스크",
+      "portfolioOpenRiskDollar": "포트폴리오 오픈 리스크 ($)",
+      "portfolioNetRisk": "포트폴리오 순 리스크",
+      "portfolioNetRiskDollar": "포트폴리오 순 리스크 ($)",
+      "expectancy": "기댓값",
+      "expectancyR": "기댓값 R",
+      "payoffRatio": "손익비",
+      "avgRiskPerTrade": "거래당 평균 리스크",
+      "avgSizePerTrade": "거래당 평균 규모",
+      "stdDevReturns": "수익률 표준편차",
+      "downsideDeviation": "하방 편차",
+      "sharpeRatio": "샤프 지수",
+      "maxConsecutiveWins": "최대 연승",
+      "maxConsecutiveLosses": "최대 연패",
+      "raroc": "RAROC"
+    },
+    "help": {
+      "currentValue": {
+        "title": "현재 자산",
+        "description": "포트폴리오의 총 자산 가치입니다. 현금 + 주식 평가금액의 합계입니다."
+      },
+      "totalReturn": {
+        "title": "총 수익률",
+        "description": "초기 자본 대비 현재까지의 전체 수익률입니다. (현재자산 - 초기자본) / 초기자본 * 100"
+      },
+      "maxDrawdown": {
+        "title": "최대 낙폭 (MDD)",
+        "description": "최고점 대비 최대 하락 폭입니다. 리스크 관리의 핵심 지표입니다."
+      },
+      "tradingDays": {
+        "title": "거래일수",
+        "description": "실제 매매가 발생한 일수입니다."
+      },
+      "stockCash": {
+        "title": "주식/현금 비율",
+        "description": "포트폴리오 내 주식과 현금의 비율입니다."
+      },
+      "winRate": {
+        "title": "승률",
+        "description": "전체 매매 중 수익이 발생한 매매의 비율입니다. 승률만으로는 수익성을 판단할 수 없습니다."
+      },
+      "avgWinR": {
+        "title": "평균 수익 R",
+        "description": "수익 매매의 평균 R값입니다. R은 리스크 대비 수익 배수를 의미합니다."
+      },
+      "avgLossR": {
+        "title": "평균 손실 R",
+        "description": "손실 매매의 평균 R값입니다. 보통 -1R 근처가 이상적입니다."
+      },
+      "avgPositionsDay": {
+        "title": "일평균 포지션",
+        "description": "하루 평균 보유 포지션 수입니다."
+      },
+      "avgHolding": {
+        "title": "평균 보유기간",
+        "description": "전체 포지션의 평균 보유 기간입니다."
+      },
+      "avgWinnerHolding": {
+        "title": "수익 포지션 보유기간",
+        "description": "수익이 발생한 포지션의 평균 보유 기간입니다."
+      },
+      "avgLoserHolding": {
+        "title": "손실 포지션 보유기간",
+        "description": "손실이 발생한 포지션의 평균 보유 기간입니다."
+      },
+      "openPositions": {
+        "title": "오픈 포지션",
+        "description": "현재 보유 중인 포지션 수입니다. F는 Freeroll(리스크 0), R은 리스크가 있는 포지션입니다."
+      },
+      "portfolioOpenRisk": {
+        "title": "포트폴리오 순수 리스크",
+        "description": "현재 열려있는 포지션의 순수 리스크 비율입니다. 스탑로스까지의 거리를 기준으로 계산됩니다."
+      },
+      "portfolioNetRisk": {
+        "title": "포트폴리오 총 리스크",
+        "description": "미실현 손익을 포함한 총 리스크입니다. 음수는 이익 상태를 의미합니다."
+      },
+      "portfolioOpenRiskDollar": {
+        "title": "순수 리스크 금액",
+        "description": "현재 포지션의 순수 리스크를 금액으로 표시합니다."
+      },
+      "portfolioNetRiskDollar": {
+        "title": "총 리스크 금액",
+        "description": "미실현 손익을 포함한 총 리스크 금액입니다."
+      },
+      "expectancy": {
+        "title": "기댓값",
+        "description": "매매당 평균 기대 수익률입니다. 양수여야 장기적으로 수익이 가능합니다."
+      },
+      "expectancyR": {
+        "title": "기댓값 R",
+        "description": "매매당 평균 기대 R값입니다. 0.3R 이상이면 우수한 시스템입니다."
+      },
+      "payoffRatio": {
+        "title": "손익비",
+        "description": "평균 수익 대비 평균 손실의 비율입니다. 1 이상이면 수익이 손실보다 큽니다."
+      },
+      "avgRiskPerTrade": {
+        "title": "매매당 평균 리스크",
+        "description": "각 매매에서 감수한 평균 리스크 비율입니다. 2% 이하가 권장됩니다."
+      },
+      "avgSizePerTrade": {
+        "title": "매매당 평균 크기",
+        "description": "총 자산 대비 평균 포지션 크기입니다."
+      },
+      "stdDevReturns": {
+        "title": "수익률 표준편차",
+        "description": "수익률의 변동성을 나타냅니다. 낮을수록 안정적입니다."
+      },
+      "downsideDeviation": {
+        "title": "하방 편차",
+        "description": "손실 방향의 변동성만 측정합니다. 리스크 평가에 더 적합합니다."
+      },
+      "sharpeRatio": {
+        "title": "샤프 비율",
+        "description": "리스크 대비 초과 수익률입니다. 1 이상이면 우수, 2 이상이면 매우 우수합니다."
+      },
+      "maxConsecutiveWins": {
+        "title": "최대 연속 수익",
+        "description": "연속으로 수익이 발생한 최대 횟수입니다."
+      },
+      "maxConsecutiveLosses": {
+        "title": "최대 연속 손실",
+        "description": "연속으로 손실이 발생한 최대 횟수입니다. 심리적 압박을 예측하는 지표입니다."
+      },
+      "raroc": {
+        "title": "RAROC",
+        "description": "리스크 조정 자본수익률입니다. 감수한 리스크 대비 수익률을 평가합니다."
+      }
+    }
+  },
+  "metricsTable": {
+    "columns": {
+      "categoryName": "카테고리 / 지표명",
+      "value": "값",
+      "description": "설명"
+    },
+    "defaultCategories": {
+      "mainMetrics": "주요 지표"
+    },
+    "categories": {
+      "profitability": "수익성",
+      "risk": "리스크",
+      "position": "포지션",
+      "time": "시간",
+      "asset": "자산"
+    },
+    "period": {
+      "all": "전체 거래",
+      "twoWeeks": "최근 2주",
+      "oneMonth": "최근 1개월",
+      "custom": "사용자 지정"
+    },
+    "settings": {
+      "categoryManagement": "카테고리 관리",
+      "addCategory": "카테고리 추가",
+      "newCategory": "새 카테고리",
+      "reset": "초기화",
+      "noCategories": "카테고리가 없습니다. 추가해주세요.",
+      "selectMetrics": "지표선택",
+      "select": "선택",
+      "delete": "삭제",
+      "edit": "지표 편집",
+      "metrics": "개 지표",
+      "metricsCount": "{{count}}개 지표",
+      "selectMetricsTitle": "\"{{categoryName}}\" 카테고리의 메트릭 선택"
+    },
+    "emptyState": {
+      "noMetrics": "표시할 메트릭이 없습니다.",
+      "addCategoryPrompt": "카테고리를 추가하고 메트릭을 선택하세요"
+    },
+    "empty": {
+      "noMetrics": "표시할 메트릭이 없습니다.",
+      "addMetrics": "설정에서 메트릭 추가하기"
+    },
+    "metrics": "개 지표"
+  }
+}
