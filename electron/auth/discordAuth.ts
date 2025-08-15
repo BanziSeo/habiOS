@@ -1,22 +1,30 @@
-import { BrowserWindow, ipcMain, shell } from 'electron';
+import { BrowserWindow, ipcMain, shell, app } from 'electron';
 import crypto from 'crypto';
 import Store from 'electron-store';
+import * as http from 'http';
+import { URL } from 'url';
 
 const store = new Store();
-const isDev = process.env.NODE_ENV === 'development';
+// 프로덕션은 app.isPackaged가 true일 때만
+const isDev = !app.isPackaged && process.env.NODE_ENV !== 'production';
 
 // Discord 설정을 함수로 래핑 (lazy loading)
 const getDiscordConfig = () => {
-  if (!process.env.DISCORD_CLIENT_ID || !process.env.DISCORD_CLIENT_SECRET) {
-    throw new Error('Discord OAuth 설정이 필요합니다. .env 파일을 확인해주세요.');
-  }
+  // 모든 환경에서 동일한 값 사용 (하드코딩)
+  const CLIENT_ID = '1405620685472010402';
+  const CLIENT_SECRET = 'AT3eR2DBEzUxHJCR92-SSrEJK6UM9VuW';
+  const BETA_SERVER_ID = '1159481575235403857';
+  
+  // 모든 환경에서 localhost 사용 (Discord가 custom protocol 지원 중단)
+  const REDIRECT_URI = 'http://localhost:3000/auth/callback';
   
   return {
-    CLIENT_ID: process.env.DISCORD_CLIENT_ID,
-    CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
-    REDIRECT_URI: 'http://localhost:3000/callback',
-    BETA_SERVER_ID: process.env.DISCORD_BETA_SERVER_ID || '',
-    SKIP_AUTH: process.env.SKIP_AUTH === 'true'
+    CLIENT_ID,
+    CLIENT_SECRET,
+    REDIRECT_URI,
+    BETA_SERVER_ID,
+    // 프로덕션에서는 절대 SKIP_AUTH 사용 안 함
+    SKIP_AUTH: false
   };
 };
 
@@ -37,6 +45,8 @@ interface AuthToken {
 export class DiscordAuthManager {
   private authWindow: BrowserWindow | null = null;
   private state: string = '';
+  private authResolve: ((value: any) => void) | null = null;
+  private localServer: http.Server | null = null;
 
   constructor() {
     this.setupIpcHandlers();
@@ -46,6 +56,19 @@ export class DiscordAuthManager {
     // Discord 로그인 시작
     ipcMain.handle('auth:discord-login', async () => {
       const config = getDiscordConfig();
+      
+      // 프로덕션에서 강제 설정
+      if (app.isPackaged) {
+        config.REDIRECT_URI = 'habios://auth/callback';
+        config.SKIP_AUTH = false;
+      }
+      
+      console.log('=== AUTH DEBUG ===');
+      console.log('isDev:', isDev);
+      console.log('app.isPackaged:', app.isPackaged);
+      console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
+      console.log('Config:', config);
+      console.log('==================');
       
       // 개발 모드면 스킵
       if (config.SKIP_AUTH) {
@@ -117,6 +140,13 @@ export class DiscordAuthManager {
     // 랜덤 state 생성 (CSRF 방지)
     this.state = crypto.randomBytes(16).toString('hex');
     
+    // 로컬 서버 시작
+    const serverStarted = await this.startLocalServer();
+    
+    if (!serverStarted) {
+      return { success: false, error: 'Failed to start local server' };
+    }
+    
     // OAuth URL 생성
     const authUrl = new URL('https://discord.com/api/oauth2/authorize');
     authUrl.searchParams.append('client_id', config.CLIENT_ID);
@@ -124,60 +154,202 @@ export class DiscordAuthManager {
     authUrl.searchParams.append('response_type', 'code');
     authUrl.searchParams.append('scope', 'identify guilds');
     authUrl.searchParams.append('state', this.state);
-
-    // 브라우저 창 열기
-    this.authWindow = new BrowserWindow({
-      width: 500,
-      height: 750,
-      webPreferences: {
-        nodeIntegration: false,
-        contextIsolation: true
-      }
-    });
-
-    this.authWindow.loadURL(authUrl.toString());
-
-    // 리다이렉트 감지
+    
+    console.log('Opening Discord OAuth in browser...');
+    
+    // 기본 브라우저에서 Discord OAuth 페이지 열기
+    shell.openExternal(authUrl.toString());
+    
+    // 서버가 code를 받을 때까지 기다림 (타임아웃 60초)
     return new Promise((resolve) => {
-      const handleCallback = async (url: string) => {
-        if (url.startsWith(config.REDIRECT_URI)) {
-          const urlObj = new URL(url);
-          const code = urlObj.searchParams.get('code');
-          const state = urlObj.searchParams.get('state');
-
+      this.authResolve = resolve;
+      
+      // 60초 후 타임아웃
+      setTimeout(() => {
+        if (this.authResolve) {
+          this.authResolve({ success: false, error: 'Authentication timeout' });
+          this.authResolve = null;
+          this.localServer?.close();
+          this.localServer = null;
+        }
+      }, 60000);
+    });
+  }
+  
+  private async startLocalServer(): Promise<string | null> {
+    return new Promise((resolve) => {
+      // 이미 서버가 실행 중이면 먼저 종료
+      if (this.localServer) {
+        this.localServer.close();
+      }
+      
+      this.localServer = http.createServer(async (req, res) => {
+        const url = new URL(req.url || '', 'http://localhost:3000');
+        
+        if (url.pathname === '/auth/callback') {
+          const code = url.searchParams.get('code');
+          const state = url.searchParams.get('state');
+          
+          // HTML 응답 보내기
+          res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+          res.end(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>habiOS - Authentication Complete</title>
+              <style>
+                * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+                }
+                body {
+                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+                  background: #0a0b0d;
+                  color: #ffffff;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                  overflow: hidden;
+                }
+                .container {
+                  text-align: center;
+                  padding: 60px 40px;
+                  max-width: 500px;
+                  animation: fadeIn 0.5s ease-out;
+                }
+                @keyframes fadeIn {
+                  from { opacity: 0; transform: translateY(20px); }
+                  to { opacity: 1; transform: translateY(0); }
+                }
+                .success-icon {
+                  width: 80px;
+                  height: 80px;
+                  margin: 0 auto 30px;
+                  background: linear-gradient(135deg, #667eea, #764ba2);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+                }
+                .success-icon svg {
+                  width: 40px;
+                  height: 40px;
+                  stroke: white;
+                  stroke-width: 3;
+                  fill: none;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  animation: checkmark 0.5s ease-out 0.3s both;
+                }
+                @keyframes checkmark {
+                  from { stroke-dasharray: 50; stroke-dashoffset: 50; }
+                  to { stroke-dasharray: 50; stroke-dashoffset: 0; }
+                }
+                h1 {
+                  font-size: 28px;
+                  font-weight: 600;
+                  margin-bottom: 16px;
+                  letter-spacing: -0.5px;
+                }
+                p {
+                  font-size: 16px;
+                  color: rgba(255, 255, 255, 0.7);
+                  line-height: 1.5;
+                  margin-bottom: 8px;
+                }
+                .status {
+                  font-size: 14px;
+                  color: rgba(255, 255, 255, 0.5);
+                  margin-top: 30px;
+                }
+                .logo {
+                  font-size: 14px;
+                  font-weight: 600;
+                  color: rgba(255, 255, 255, 0.3);
+                  margin-top: 40px;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <div class="success-icon">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h1>Authentication Successful</h1>
+                <p>Your Discord account has been successfully linked.</p>
+                <p>You can now close this window and return to the application.</p>
+                <div class="status">Redirecting to habiOS...</div>
+                <div class="logo">habiOS v0.8.15</div>
+              </div>
+              <script>
+                // 5초 후 자동으로 창 닫기 시도
+                setTimeout(() => {
+                  window.close();
+                }, 5000);
+              </script>
+            </body>
+            </html>
+          `);
+          
+          // state 검증
           if (state !== this.state) {
-            resolve({ success: false, error: 'Invalid state' });
-            this.authWindow?.close();
+            console.error('Invalid state parameter');
+            if (this.authResolve) {
+              this.authResolve({ success: false, error: 'Invalid state parameter' });
+              this.authResolve = null;
+            }
+            this.localServer?.close();
+            this.localServer = null;
             return;
           }
-
+          
+          // 코드로 토큰 교환
           if (code) {
             const result = await this.exchangeCodeForToken(code);
-            resolve(result);
+            if (this.authResolve) {
+              this.authResolve(result);
+              this.authResolve = null;
+            }
           } else {
-            resolve({ success: false, error: 'No code received' });
+            if (this.authResolve) {
+              this.authResolve({ success: false, error: 'No code received' });
+              this.authResolve = null;
+            }
           }
-
-          this.authWindow?.close();
-        }
-      };
-
-      // will-navigate 이벤트 (리다이렉트 전)
-      this.authWindow!.webContents.on('will-navigate', async (event, url) => {
-        if (url.startsWith(config.REDIRECT_URI)) {
-          event.preventDefault();
-          await handleCallback(url);
+          
+          // 서버 종료
+          setTimeout(() => {
+            this.localServer?.close();
+            this.localServer = null;
+          }, 1000);
+        } else {
+          // 404 응답
+          res.writeHead(404);
+          res.end('Not Found');
         }
       });
-
-      // did-navigate 이벤트 (백업)
-      this.authWindow!.webContents.on('did-navigate', async (event, url) => {
-        await handleCallback(url);
+      
+      // 포트 3000으로 서버 시작
+      this.localServer.listen(3000, () => {
+        console.log('Local auth server started on http://localhost:3000');
+        resolve('server-started');
       });
-
-      this.authWindow!.on('closed', () => {
-        this.authWindow = null;
-        resolve({ success: false, error: 'User closed window' });
+      
+      // 에러 처리
+      this.localServer.on('error', (err: any) => {
+        console.error('Server error:', err);
+        if (err.code === 'EADDRINUSE') {
+          console.log('Port 3000 is already in use, trying 3001...');
+          // 포트 충돌 시 다른 포트 시도 (나중에 구현)
+        }
+        resolve(null);
       });
     });
   }
@@ -270,5 +442,12 @@ export class DiscordAuthManager {
     } catch {
       return false;
     }
+  }
+
+  // Custom protocol callback 처리 (더 이상 사용 안 함 - Discord가 지원 중단)
+  public async handleProtocolCallback(url: string) {
+    // Discord가 custom protocol 지원을 중단하여 이 메서드는 사용되지 않음
+    // localhost 서버 방식으로 대체됨
+    return;
   }
 }

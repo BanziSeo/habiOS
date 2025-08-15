@@ -31,6 +31,10 @@
     "target": "nsis",
     "icon": "build/icon.ico"
   },
+  "protocols": {
+    "name": "habiOS Protocol",
+    "schemes": ["habios"]
+  },
   "linux": {
     "target": "AppImage",
     "icon": "build"
@@ -38,7 +42,9 @@
   "nsis": {
     "oneClick": false,
     "allowToChangeInstallationDirectory": true,
-    "artifactName": "${productName}-Setup-${version}.${ext}"
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "perMachine": true,
+    "include": "build/installer.nsh"
   },
   "npmRebuild": true,
   "nodeGypRebuild": false,

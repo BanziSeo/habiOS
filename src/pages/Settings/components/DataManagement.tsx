@@ -31,7 +31,31 @@ export const DataManagement: React.FC = () => {
   const handleBackup = async () => {
     setIsBackingUp(true);
     try {
-      const result = await window.electronAPI.database.backup();
+      // localStorage 데이터 수집
+      const localStorageData: Record<string, any> = {};
+      const keysToBackup = [
+        'journal_custom_names',
+        'journal1_presets',
+        'journal2_presets',
+        'journal1WidgetLayouts',
+        'journal1HiddenWidgets',
+        'journal1HiddenCards',
+        'journal2WidgetLayouts',
+        'journal2HiddenWidgets',
+        'journal2HiddenCards',
+        'journalWidgetLayouts',
+        'journalHiddenWidgets',
+        'journalHiddenCards'
+      ];
+      
+      keysToBackup.forEach(key => {
+        const value = localStorage.getItem(key);
+        if (value) {
+          localStorageData[key] = value;
+        }
+      });
+
+      const result = await window.electronAPI.database.backup(localStorageData);
       if (result.success) {
         message.success(`${t('data.backup.success')}: ${result.filePath}`);
       } else {
@@ -74,6 +98,13 @@ export const DataManagement: React.FC = () => {
     try {
       const result = await window.electronAPI.database.restore();
       if (result.success) {
+        // localStorage 데이터 복원
+        if (result.localStorageData) {
+          Object.keys(result.localStorageData).forEach(key => {
+            localStorage.setItem(key, result.localStorageData[key]);
+          });
+        }
+        
         message.success(t('data.restore.success'));
         
         // 앱 재시작 권장 모달
@@ -82,8 +113,8 @@ export const DataManagement: React.FC = () => {
           content: t('data.restore.restartMessage'),
           okText: t('actions.confirm'),
           onOk: () => {
-            // 선택적: 앱 재시작
-            // window.electronAPI.app.restart();
+            // 페이지 새로고침으로 localStorage 적용
+            window.location.reload();
           }
         });
       } else if (result.cancelled) {

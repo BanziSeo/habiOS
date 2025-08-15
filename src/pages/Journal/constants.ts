@@ -28,6 +28,10 @@ export const ALL_WIDGETS: Widget[] = [
   { id: 'metrics-table-1', title: 'Metrics Table 1', type: 'metrics-table' },
   { id: 'metrics-table-2', title: 'Metrics Table 2', type: 'metrics-table' },
   { id: 'metrics-table-3', title: 'Metrics Table 3', type: 'metrics-table' },
+  // 달력 위젯 (최대 3개)
+  { id: 'calendar-1', title: 'Calendar 1', type: 'calendar' },
+  { id: 'calendar-2', title: 'Calendar 2', type: 'calendar' },
+  { id: 'calendar-3', title: 'Calendar 3', type: 'calendar' },
   { id: 'positions', title: 'Positions', type: 'positions' },
 ];
 
@@ -45,6 +49,10 @@ export const COMPACT_LAYOUTS: LayoutItem[] = [
   { i: 'metrics-table-1', x: 0, y: 107, w: 12, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-2', x: 0, y: 122, w: 12, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-3', x: 0, y: 137, w: 12, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
+  // 달력 위젯들 (기본적으로 숨김)
+  { i: 'calendar-1', x: 0, y: 152, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-2', x: 0, y: 172, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-3', x: 0, y: 192, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
 ];
 
 // 반응형 레이아웃 - 큰 화면용
@@ -63,6 +71,10 @@ export const DEFAULT_LAYOUTS: LayoutItem[] = [
   { i: 'metrics-3', x: 6, y: 52, w: 6, h: 15, minW: 4, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-2', x: 0, y: 67, w: 6, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-3', x: 6, y: 67, w: 6, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
+  // 달력 위젯들 (기본적으로 숨김)
+  { i: 'calendar-1', x: 0, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-2', x: 4, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-3', x: 8, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
 ];
 
 // GridLayout 설정

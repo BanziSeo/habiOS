@@ -10,6 +10,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons';
 import { useSettingsStore } from '../../../stores/settingsStore';
+import { useJournalNames } from '../../../hooks/useJournalNames';
 
 interface NavigationMenuProps {
   collapsed: boolean;
@@ -20,6 +21,7 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({ collapsed }) => 
   const navigate = useNavigate();
   const location = useLocation();
   const { generalSettings } = useSettingsStore();
+  const { journalNames } = useJournalNames();
 
   // 메뉴별 단축키 찾기
   const getShortcutForMenu = (menu: string) => {
@@ -28,14 +30,28 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({ collapsed }) => 
 
   const mainMenuItems = [
     {
-      key: '/journal',
+      key: '/journal1',
       icon: <FileTextOutlined style={{ fontSize: 18 }} />,
       label: (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-          <span style={{ fontSize: 15, fontWeight: 500 }}>{t('navigation.journal')}</span>
-          {!collapsed && getShortcutForMenu('/journal') && (
+          <span style={{ fontSize: 15, fontWeight: 500 }}>{journalNames.journal1}</span>
+          {!collapsed && getShortcutForMenu('/journal1') && (
             <span style={{ fontSize: 12, marginLeft: 'auto', opacity: 0.45 }}>
-              {getShortcutForMenu('/journal')}
+              {getShortcutForMenu('/journal1')}
+            </span>
+          )}
+        </div>
+      ),
+    },
+    {
+      key: '/journal2',
+      icon: <FileTextOutlined style={{ fontSize: 18 }} />,
+      label: (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+          <span style={{ fontSize: 15, fontWeight: 500 }}>{journalNames.journal2}</span>
+          {!collapsed && getShortcutForMenu('/journal2') && (
+            <span style={{ fontSize: 12, marginLeft: 'auto', opacity: 0.45 }}>
+              {getShortcutForMenu('/journal2')}
             </span>
           )}
         </div>

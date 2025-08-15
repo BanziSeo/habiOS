@@ -373,6 +373,22 @@
       }
     }
   },
+  "calendar": {
+    "viewMode": "View Mode",
+    "week": "Week View",
+    "month": "Month View", 
+    "heatmap": "Heatmap",
+    "period": "Period",
+    "1week": "1 Week",
+    "2weeks": "2 Weeks",
+    "4weeks": "4 Weeks",
+    "monthPeriod": "Month",
+    "displayOptions": "Display Options",
+    "showPnL": "P&L",
+    "showTradeCount": "Trade Count",
+    "showWinRate": "Win Rate",
+    "lastWeeks": "Last {{weeks}} weeks"
+  },
   "metricsTable": {
     "columns": {
       "categoryName": "Category / Metric",

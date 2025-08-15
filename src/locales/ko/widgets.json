@@ -373,6 +373,22 @@
       }
     }
   },
+  "calendar": {
+    "viewMode": "뷰 모드",
+    "week": "주간 뷰",
+    "month": "월간 뷰",
+    "heatmap": "히트맵",
+    "period": "기간",
+    "1week": "1주",
+    "2weeks": "2주",
+    "4weeks": "4주",
+    "monthPeriod": "월",
+    "displayOptions": "표시 옵션",
+    "showPnL": "손익",
+    "showTradeCount": "거래 횟수",
+    "showWinRate": "승률",
+    "lastWeeks": "최근 {{weeks}}주"
+  },
   "metricsTable": {
     "columns": {
       "categoryName": "카테고리 / 지표명",
