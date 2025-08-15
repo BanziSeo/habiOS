@@ -153,7 +153,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
             color: 'rgba(255, 255, 255, 0.4)',
             marginTop: '24px'
           }}>
-            TradesLog Beta v1.0
+            habiOS v0.8.15
           </p>
         </div>
       </div>

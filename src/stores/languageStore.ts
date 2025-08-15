@@ -8,7 +8,7 @@ interface LanguageStore {
 }
 
 export const useLanguageStore = create<LanguageStore>((set) => ({
-  language: (localStorage.getItem('language') as 'en' | 'ko') || 'en',
+  language: (localStorage.getItem('language') as 'en' | 'ko') || 'ko',
   
   setLanguage: (lang) => {
     localStorage.setItem('language', lang);
@@ -17,7 +17,7 @@ export const useLanguageStore = create<LanguageStore>((set) => ({
   },
   
   initializeLanguage: () => {
-    const savedLang = (localStorage.getItem('language') as 'en' | 'ko') || 'en';
+    const savedLang = (localStorage.getItem('language') as 'en' | 'ko') || 'ko';
     i18n.changeLanguage(savedLang);
     set({ language: savedLang });
   }

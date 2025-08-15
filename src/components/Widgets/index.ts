@@ -5,3 +5,5 @@ export { DailyNotesWidget } from './DailyNotesWidget';
 export { TodayTradesWidget } from './TodayTradesWidget';
 export { MetricsWidgetV2, ALL_METRIC_CARDS } from './MetricsWidget';
 export { PositionTableWidget } from './PositionTableWidget';
+export { CalendarWidget } from './CalendarWidget';
+export { FullEquityCurveWidget, MiniEquityCurveWidget } from './EquityCurveWidget';

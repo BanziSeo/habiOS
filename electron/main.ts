@@ -12,7 +12,7 @@ dotenv.config({ path: envPath });
 // Environment variables loaded
 
 // 이제 다른 import들
-import { app, BrowserWindow, dialog } from 'electron';
+import { app, BrowserWindow, dialog, protocol, Menu } from 'electron';
 import { initDatabase } from './database/db.js';
 import { registerAllHandlers } from './ipc-handlers/index.js';
 import { DiscordAuthManager } from './auth/discordAuth.js';
@@ -22,7 +22,19 @@ import { UpdateManager } from './updater.js';
 let mainWindow: BrowserWindow | null = null;
 let updateManager: UpdateManager | null = null;
 
+// Custom protocol 등록 (프로덕션용)
+if (process.defaultApp) {
+  if (process.argv.length >= 2) {
+    app.setAsDefaultProtocolClient('habios', process.execPath, [__dirname]);
+  }
+} else {
+  app.setAsDefaultProtocolClient('habios');
+}
+
 async function createWindow() {
+  // 메뉴바 완전 제거
+  Menu.setApplicationMenu(null);
+  
   mainWindow = new BrowserWindow({
     width: 1600,
     height: 900,
@@ -78,12 +90,44 @@ async function createWindow() {
   });
 }
 
+// Deep link 핸들링을 위한 변수
+let discordAuthManager: DiscordAuthManager | null = null;
+
+// Windows에서 single instance lock
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on('second-instance', (event, commandLine) => {
+    // 누군가 두 번째 인스턴스를 실행하려고 하면 첫 번째 인스턴스 포커스
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+    
+    // Windows에서 deep link 처리
+    const url = commandLine.find((arg) => arg.startsWith('habios://'));
+    if (url && discordAuthManager) {
+      discordAuthManager.handleProtocolCallback(url);
+    }
+  });
+}
+
+// macOS/Linux deep link 핸들링
+app.on('open-url', (event, url) => {
+  event.preventDefault();
+  if (discordAuthManager) {
+    discordAuthManager.handleProtocolCallback(url);
+  }
+});
+
 app.whenReady().then(async () => {
   // 자동 업데이트 매니저 초기화
   updateManager = new UpdateManager();
   
   // Discord 인증 매니저 초기화
-  new DiscordAuthManager();
+  discordAuthManager = new DiscordAuthManager();
   
   // 데이터베이스 초기화
   await initDatabase();

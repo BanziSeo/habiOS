@@ -373,6 +373,32 @@
       }
     }
   },
+  "calendar": {
+    "viewMode": "View Mode",
+    "week": "Week View",
+    "month": "Month View", 
+    "heatmap": "Heatmap",
+    "period": "Period",
+    "1week": "1 Week",
+    "2weeks": "2 Weeks",
+    "4weeks": "4 Weeks",
+    "monthPeriod": "Month",
+    "displayOptions": "Display Options",
+    "showPnL": "P&L",
+    "pnlDisplay": "P&L Display",
+    "currency": "Amount",
+    "percentage": "% of Account",
+    "showTradeCount": "Trade Count",
+    "showPositionStats": "Position Stats",
+    "showWinRate": "Win Rate",
+    "lastWeeks": "Last {{weeks}} weeks",
+    "colorSettings": "Color Settings",
+    "profitColor": "Profit Color",
+    "lossColor": "Loss Color",
+    "heatmapDirection": "Heatmap Direction",
+    "horizontal": "Horizontal",
+    "vertical": "Vertical"
+  },
   "metricsTable": {
     "columns": {
       "categoryName": "Category / Metric",

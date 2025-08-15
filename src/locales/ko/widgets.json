@@ -373,6 +373,32 @@
       }
     }
   },
+  "calendar": {
+    "viewMode": "뷰 모드",
+    "week": "주간 뷰",
+    "month": "월간 뷰",
+    "heatmap": "히트맵",
+    "period": "기간",
+    "1week": "1주",
+    "2weeks": "2주",
+    "4weeks": "4주",
+    "monthPeriod": "월",
+    "displayOptions": "표시 옵션",
+    "showPnL": "손익",
+    "pnlDisplay": "손익 표시",
+    "currency": "금액",
+    "percentage": "총자산%",
+    "showTradeCount": "거래 횟수",
+    "showPositionStats": "포지션 통계",
+    "showWinRate": "승률",
+    "lastWeeks": "최근 {{weeks}}주",
+    "colorSettings": "색상 설정",
+    "profitColor": "수익 색상",
+    "lossColor": "손실 색상",
+    "heatmapDirection": "히트맵 방향",
+    "horizontal": "가로",
+    "vertical": "세로"
+  },
   "metricsTable": {
     "columns": {
       "categoryName": "카테고리 / 지표명",

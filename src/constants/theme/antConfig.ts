@@ -79,6 +79,12 @@ export const createTheme = (themeType: ThemeType): ThemeConfig => {
         headerBorderRadius: 8,
       },
       
+      // Tooltip
+      Tooltip: {
+        colorBgSpotlight: themeColors.L4,
+        colorTextLightSolid: themeColors.text,
+      },
+      
       // 카드
       Card: {
         colorBgContainer: themeColors.L3,

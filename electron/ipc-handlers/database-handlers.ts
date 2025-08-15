@@ -20,7 +20,7 @@ export function registerDatabaseHandlers() {
   });
 
   // 데이터베이스 백업
-  ipcMain.handle('db:backup', async (event) => {
+  ipcMain.handle('db:backup', async (event, localStorageData = null) => {
     try {
       // 현재 날짜/시간으로 파일명 생성
       const now = new Date();
@@ -93,6 +93,11 @@ export function registerDatabaseHandlers() {
           archive.file(configPath, { name: 'config.json' });
         }
 
+        // localStorage 데이터 추가 (프리셋, 커스텀 이름 등)
+        if (localStorageData) {
+          archive.append(JSON.stringify(localStorageData, null, 2), { name: 'localStorage.json' });
+        }
+
         // WAL 파일 추가 (있는 경우)
         const walPath = currentDbPath + '-wal';
         const shmPath = currentDbPath + '-shm';
@@ -118,6 +123,7 @@ export function registerDatabaseHandlers() {
   // 데이터베이스 복원
   ipcMain.handle('db:restore', async (event) => {
     try {
+      let localStorageData = null;
       // 백업 파일 선택 대화상자
       const result = await dialog.showOpenDialog({
         title: '백업 파일 선택',
@@ -201,6 +207,9 @@ export function registerDatabaseHandlers() {
                 path.join(userDataPath, 'database.db-shm'),
                 currentDbPath + '-shm'
               );
+            } else if (entry.entryName === 'localStorage.json') {
+              // localStorage 데이터 읽기
+              localStorageData = JSON.parse(zip.readAsText(entry));
             }
           });
 
@@ -220,7 +229,7 @@ export function registerDatabaseHandlers() {
             await fs.promises.unlink(tempConfigPath);
           }
 
-          return { success: true };
+          return { success: true, localStorageData };
         } catch (error) {
           // 복원 실패 시 원래 파일로 롤백
           await fs.promises.copyFile(tempBackupPath, currentDbPath);

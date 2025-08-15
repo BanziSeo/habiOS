@@ -4,22 +4,25 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useSettingsStore } from '../../../../stores/settingsStore';
 import { ShortcutInput } from './ShortcutInput';
+import { useJournalNames } from '../../../../hooks/useJournalNames';
 import type { MenuShortcut } from '../../../../stores/settings/types';
 
 const { Text } = Typography;
 
 export const MenuShortcuts: React.FC = () => {
   const { t } = useTranslation('settings');
+  const { journalNames } = useJournalNames();
   
   // 메뉴 단축키 기본 설정 - i18n 적용
   const DEFAULT_MENU_SHORTCUTS: MenuShortcut[] = useMemo(() => [
-    { menu: '/journal', key: '1', label: t('shortcuts.menu.journal') },
-    { menu: '/equity-curve', key: '2', label: t('shortcuts.menu.equityCurve') },
-    { menu: '/analysis', key: '3', label: t('shortcuts.menu.analysis') },
-    { menu: '/chart-book', key: '4', label: t('shortcuts.menu.chartBook') },
-    { menu: '/import', key: '5', label: t('shortcuts.menu.import') },
-    { menu: '/settings', key: '6', label: t('shortcuts.menu.settings') },
-  ], [t]);
+    { menu: '/journal1', key: '1', label: journalNames.journal1 },
+    { menu: '/journal2', key: '2', label: journalNames.journal2 },
+    { menu: '/equity-curve', key: '3', label: t('shortcuts.menu.equityCurve') },
+    { menu: '/analysis', key: '4', label: t('shortcuts.menu.analysis') },
+    { menu: '/chart-book', key: '5', label: t('shortcuts.menu.chartBook') },
+    { menu: '/import', key: '6', label: t('shortcuts.menu.import') },
+    { menu: '/settings', key: '7', label: t('shortcuts.menu.settings') },
+  ], [t, journalNames]);
   const { 
     generalSettings, 
     setMenuShortcut, 

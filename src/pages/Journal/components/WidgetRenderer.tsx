@@ -9,6 +9,7 @@ import {
   TodayTradesWidget,
   MetricsWidgetV2,
   PositionTableWidget,
+  CalendarWidget,
 } from '../../../components/Widgets';
 import { MetricsTableWidget } from '../../../components/Widgets/MetricsTableWidget';
 import { ALL_WIDGETS } from '../constants';
@@ -127,6 +128,17 @@ export const WidgetRenderer: React.FC<WidgetRendererProps> = ({
             onPeriodChange={onPeriodChange}
             currentPeriodFilter={currentPeriodFilter}
             currentDateRange={currentDateRange}
+          />
+        </WidgetContainer>
+      );
+    
+    case 'calendar':
+      return (
+        <WidgetContainer title={`${t('widget.calendar.title', 'Calendar')} - ${widgetId.split('-')[1] || '1'}`}>
+          <CalendarWidget
+            widgetId={widgetId}
+            positions={filteredPositions.length > 0 ? filteredPositions : positions}
+            containerWidth={containerWidth}
           />
         </WidgetContainer>
       );
