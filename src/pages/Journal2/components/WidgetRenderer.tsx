@@ -10,6 +10,8 @@ import {
   MetricsWidgetV2,
   PositionTableWidget,
   CalendarWidget,
+  FullEquityCurveWidget,
+  MiniEquityCurveWidget,
 } from '../../../components/Widgets';
 import { MetricsTableWidget } from '../../../components/Widgets/MetricsTableWidget';
 import { ALL_WIDGETS } from '../constants';
@@ -140,6 +142,20 @@ export const WidgetRenderer: React.FC<WidgetRendererProps> = ({
             positions={filteredPositions.length > 0 ? filteredPositions : positions}
             containerWidth={containerWidth}
           />
+        </WidgetContainer>
+      );
+    
+    case 'equity-curve-full':
+      return (
+        <WidgetContainer title={t('widget.equityCurve.title', 'Equity Curve')}>
+          <FullEquityCurveWidget />
+        </WidgetContainer>
+      );
+    
+    case 'equity-curve-mini':
+      return (
+        <WidgetContainer title={t('widget.equityCurveMini.title', 'Equity Curve (Mini)')}>
+          <MiniEquityCurveWidget />
         </WidgetContainer>
       );
     

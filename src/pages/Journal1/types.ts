@@ -5,7 +5,7 @@ import type dayjs from 'dayjs';
 export interface Widget {
   id: string;
   title: string;
-  type: 'daily-risk-limit' | 'daily-pnl' | 'daily-notes' | 'today-trades' | 'metrics' | 'positions' | 'metrics-table' | 'calendar';
+  type: 'daily-risk-limit' | 'daily-pnl' | 'daily-notes' | 'today-trades' | 'metrics' | 'positions' | 'metrics-table' | 'calendar' | 'equity-curve-full' | 'equity-curve-mini';
 }
 
 // Equity 통계 타입

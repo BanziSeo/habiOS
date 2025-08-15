@@ -32,6 +32,9 @@ export const ALL_WIDGETS: Widget[] = [
   { id: 'calendar-1', title: 'Calendar 1', type: 'calendar' },
   { id: 'calendar-2', title: 'Calendar 2', type: 'calendar' },
   { id: 'calendar-3', title: 'Calendar 3', type: 'calendar' },
+  // Equity Curve 위젯
+  { id: 'equity-curve-full', title: 'Equity Curve', type: 'equity-curve-full' },
+  { id: 'equity-curve-mini', title: 'Equity Curve (Mini)', type: 'equity-curve-mini' },
   { id: 'positions', title: 'Positions', type: 'positions' },
 ];
 
@@ -50,9 +53,12 @@ export const COMPACT_LAYOUTS: LayoutItem[] = [
   { i: 'metrics-table-2', x: 0, y: 122, w: 12, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-3', x: 0, y: 137, w: 12, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   // 달력 위젯들 (기본적으로 숨김)
-  { i: 'calendar-1', x: 0, y: 152, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
-  { i: 'calendar-2', x: 0, y: 172, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
-  { i: 'calendar-3', x: 0, y: 192, w: 12, h: 20, minW: 4, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-1', x: 0, y: 152, w: 12, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-2', x: 0, y: 172, w: 12, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-3', x: 0, y: 192, w: 12, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  // Equity Curve 위젯들 (기본적으로 숨김)
+  { i: 'equity-curve-full', x: 0, y: 212, w: 12, h: 25, minW: 6, minH: 20, maxW: 12, maxH: 50 },
+  { i: 'equity-curve-mini', x: 0, y: 237, w: 6, h: 15, minW: 3, minH: 10, maxW: 12, maxH: 50 },
 ];
 
 // 반응형 레이아웃 - 큰 화면용
@@ -72,9 +78,12 @@ export const DEFAULT_LAYOUTS: LayoutItem[] = [
   { i: 'metrics-table-2', x: 0, y: 67, w: 6, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   { i: 'metrics-table-3', x: 6, y: 67, w: 6, h: 15, minW: 1, minH: 10, maxW: 12, maxH: 50 },
   // 달력 위젯들 (기본적으로 숨김)
-  { i: 'calendar-1', x: 0, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
-  { i: 'calendar-2', x: 4, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
-  { i: 'calendar-3', x: 8, y: 82, w: 4, h: 20, minW: 3, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-1', x: 0, y: 82, w: 4, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-2', x: 4, y: 82, w: 4, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  { i: 'calendar-3', x: 8, y: 82, w: 4, h: 20, minW: 2, minH: 15, maxW: 12, maxH: 50 },
+  // Equity Curve 위젯들 (기본적으로 숨김)
+  { i: 'equity-curve-full', x: 0, y: 102, w: 6, h: 20, minW: 6, minH: 20, maxW: 12, maxH: 50 },
+  { i: 'equity-curve-mini', x: 6, y: 102, w: 3, h: 12, minW: 3, minH: 10, maxW: 12, maxH: 50 },
 ];
 
 // GridLayout 설정

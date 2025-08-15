@@ -107,7 +107,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({
       const weeks = settings.period === '1week' ? 1 :
                    settings.period === '2weeks' ? 2 :
                    settings.period === '4weeks' ? 4 : 5;
-      return t('calendar.lastWeeks', `Last ${weeks} weeks`);
+      return t('calendar.lastWeeks', { weeks });
     } else {
       const weekStart = currentDate.startOf('week');
       const weekEnd = weekStart.add(

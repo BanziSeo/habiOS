@@ -86,8 +86,8 @@ export const GeneralSettings: React.FC = React.memo(() => {
               onChange={setLanguage}
               style={{ width: 200 }}
             >
-              <Select.Option value="en">English</Select.Option>
               <Select.Option value="ko">한국어</Select.Option>
+              <Select.Option value="en">English</Select.Option>
             </Select>
           </Form.Item>
         </Form>
@@ -146,29 +146,6 @@ export const GeneralSettings: React.FC = React.memo(() => {
             </Select>
             <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 4 }}>
               {themeList.find(t => t.key === (generalSettings.colorTheme || 'moonlight-mist'))?.description}
-            </Text>
-          </Form.Item>
-
-          <Form.Item label={t('general.currency.label')}>
-            <Select
-              value={generalSettings.defaultCurrency}
-              onChange={(value) => updateGeneralSettings({ defaultCurrency: value })}
-            >
-              <Select.Option value="USD">{t('general.currency.usd')}</Select.Option>
-              <Select.Option value="KRW">{t('general.currency.krw')}</Select.Option>
-            </Select>
-          </Form.Item>
-
-          <Form.Item label={t('general.timeDisplay.label')}>
-            <Select
-              value={generalSettings.timeDisplay || 'broker'}
-              onChange={(value) => updateGeneralSettings({ timeDisplay: value })}
-            >
-              <Select.Option value="broker">{t('general.timeDisplay.brokerTime')}</Select.Option>
-              <Select.Option value="actual">{t('general.timeDisplay.actualTime')}</Select.Option>
-            </Select>
-            <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 4 }}>
-              {t('general.timeDisplay.brokerTimeDesc')}
             </Text>
           </Form.Item>
         </Form>

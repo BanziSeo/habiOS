@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Button, Modal, Input, message, Space, Divider } from 'antd';
+import { Select, Button, Modal, Input, message, Space } from 'antd';
 import { SaveOutlined, DeleteOutlined } from '@ant-design/icons';
 import { usePresets } from '../../../hooks/usePresets';
 import type { LayoutItem } from '../types';
@@ -25,7 +25,7 @@ export const PresetManager: React.FC<PresetManagerProps> = ({
   hiddenMetricCards,
   onLoadPreset
 }) => {
-  const { presets, userPresets, defaultTemplates, savePreset, deletePreset } = usePresets({ journalId });
+  const { presets, userPresets, savePreset, deletePreset } = usePresets({ journalId });
   const [saveModalVisible, setSaveModalVisible] = useState(false);
   const [presetName, setPresetName] = useState('');
   const [selectedPresetId, setSelectedPresetId] = useState<string>('');

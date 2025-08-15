@@ -6,7 +6,7 @@ import { ChunkErrorBoundary } from '../components/Common/ChunkErrorBoundary';
 // Lazy load pages
 const Journal1 = lazy(() => import('../pages/Journal1'));
 const Journal2 = lazy(() => import('../pages/Journal2'));
-const EquityCurve = lazy(() => import('../pages/EquityCurve'));
+// const EquityCurve = lazy(() => import('../pages/EquityCurve')); // 백업됨 - 위젯으로 이동
 const Analysis = lazy(() => import('../pages/Analysis'));
 const ChartBook = lazy(() => import('../pages/ChartBook'));
 const Import = lazy(() => import('../pages/Import'));
@@ -20,7 +20,8 @@ export const AppRouter = () => {
           <Route path="/journal" element={<Navigate to="/journal1" replace />} />
           <Route path="/journal1" element={<Journal1 />} />
           <Route path="/journal2" element={<Journal2 />} />
-          <Route path="/equity-curve" element={<EquityCurve />} />
+          {/* <Route path="/equity-curve" element={<EquityCurve />} /> 백업됨 - 위젯으로 이동 */}
+          <Route path="/equity-curve" element={<Navigate to="/journal1" replace />} />
           <Route path="/analysis" element={<Analysis />} />
           <Route path="/chartbook" element={<ChartBook />} />
           <Route path="/chart-book" element={<Navigate to="/chartbook" replace />} />

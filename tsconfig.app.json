@@ -30,5 +30,8 @@
     }
   },
   "include": ["src", "electron/preload.ts"],
-  "exclude": ["src/utils/dbNormalizer_backup_20250813"]
+  "exclude": [
+    "src/utils/dbNormalizer_backup_20250813",
+    "src/pages/_backup/**/*"
+  ]
 }

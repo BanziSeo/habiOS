@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography, theme, Tooltip } from 'antd';
 import dayjs, { type Dayjs } from 'dayjs';
 import type { DailyData, CalendarSettings } from '../types';
+import { formatPnL } from '../utils/formatters';
+import { useTradingStore } from '../../../../stores/tradingStore';
 
 const { Text } = Typography;
 
@@ -19,6 +21,7 @@ export const MonthView: React.FC<MonthViewProps> = ({
   onDateChange,
 }) => {
   const { token } = theme.useToken();
+  const { activeAccount } = useTradingStore();
   
   // 현재 달의 날짜들 가져오기
   const getMonthDays = (): Dayjs[] => {
@@ -97,8 +100,8 @@ export const MonthView: React.FC<MonthViewProps> = ({
             const data = dailyData.get(dateStr);
             const isCurrentMonth = date.month() === currentDate.month();
             const isToday = date.isSame(dayjs(), 'day');
-            const pnlColor = data && data.pnl > 0 ? token.colorSuccess : 
-                            data && data.pnl < 0 ? token.colorError : 
+            const pnlColor = data && data.pnl > 0 ? (settings.profitColor || token.colorSuccess) : 
+                            data && data.pnl < 0 ? (settings.lossColor || token.colorError) : 
                             token.colorTextSecondary;
 
             return (
@@ -108,9 +111,14 @@ export const MonthView: React.FC<MonthViewProps> = ({
                   data ? (
                     <>
                       {date.format('MMM DD, YYYY')}
-                      {settings.showPnL && <><br/>P&L: ${data.pnl.toFixed(2)}</>}
-                      {settings.showTradeCount && <><br/>Trades: {data.tradeCount}</>}
-                      {settings.showWinRate && data.tradeCount > 0 && <><br/>Win Rate: {data.winRate.toFixed(1)}%</>}
+                      {settings.showPnL && <><br/>P&L: {formatPnL(data.pnl, settings.pnlDisplayMode || 'currency', activeAccount?.currency)}</>}
+                      {(settings.showPositionStats ?? settings.showTradeCount) && (
+                        <>
+                          {data.openedPositions > 0 && <><br/>Opened: {data.openedPositions}</>}
+                          {data.closedPositions > 0 && <><br/>Closed: {data.closedPositions}</>}
+                        </>
+                      )}
+                      {settings.showWinRate && data.closedPositions > 0 && <><br/>Win Rate: {data.winRate.toFixed(1)}%</>}
                     </>
                   ) : (
                     date.format('MMM DD, YYYY')
@@ -122,8 +130,10 @@ export const MonthView: React.FC<MonthViewProps> = ({
                   style={{
                     padding: token.paddingXS,
                     background: !isCurrentMonth ? token.colorBgLayout :
-                               data && data.pnl > 0 ? token.colorSuccessBg :
-                               data && data.pnl < 0 ? token.colorErrorBg :
+                               data && data.pnl !== 0 ? 
+                                 (data.pnl > 0 ? 
+                                   `${settings.profitColor || token.colorSuccess}20` : 
+                                   `${settings.lossColor || token.colorError}20`) :
                                token.colorBgContainer,
                     border: `1px solid ${isToday ? token.colorPrimary : token.colorBorderSecondary}`,
                     borderRadius: token.borderRadiusSM,
@@ -159,7 +169,7 @@ export const MonthView: React.FC<MonthViewProps> = ({
                           fontWeight: token.fontWeightStrong,
                           color: pnlColor,
                         }}>
-                          {data.pnl > 0 ? '+' : ''}{data.pnl.toFixed(0)}
+                          {formatPnL(data.pnl, settings.pnlDisplayMode || 'currency', activeAccount?.currency)}
                         </Text>
                       )}
                       {settings.showTradeCount && (

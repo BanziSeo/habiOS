@@ -19,7 +19,6 @@ import { GeneralSettings } from './components/GeneralSettings';
 import { DataManagement } from './components/DataManagement';
 import { ChartModal } from '../../components/Modals/ChartModal';
 import { ShortcutSettings } from './components/ShortcutSettings';
-import { ButtonPreview } from './components/ButtonPreview';
 import { createDummyPosition } from '../../utils/dummyData';
 import { useChartData } from '../../components/Modals/ChartModal/hooks/useChartData';
 import type { Position } from '../../types';
@@ -109,8 +108,6 @@ export const SettingsPage: React.FC = () => {
         return <ChartSettings />;
       case 'general':
         return <GeneralSettings />;
-      case 'button-preview':
-        return <ButtonPreview />;
       default:
         return null;
     }
@@ -182,19 +179,6 @@ export const SettingsPage: React.FC = () => {
           >
             <SettingOutlined className="tab-icon" />
             {t('tabs.general')}
-          </div>
-          <div 
-            className={`tab-item ${activeTab === 'button-preview' ? 'active' : ''}`}
-            onClick={() => setActiveTab('button-preview')}
-            style={{
-              ...(activeTab === 'button-preview' && {
-                color: token.colorPrimary,
-                borderBottomColor: token.colorPrimary,
-              })
-            }}
-          >
-            <EyeOutlined className="tab-icon" />
-            버튼 디자인
           </div>
         </div>
         

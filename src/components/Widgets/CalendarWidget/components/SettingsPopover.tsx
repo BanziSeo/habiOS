@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Switch, Space, Typography, theme } from 'antd';
+import { Select, Switch, Space, Typography, theme, ColorPicker, Divider } from 'antd';
 import { useTranslation } from 'react-i18next';
 import type { CalendarSettings, CalendarViewMode, CalendarPeriod } from '../types';
 
@@ -71,13 +71,30 @@ export const SettingsPopover: React.FC<SettingsPopoverProps> = ({
               }
             />
           </div>
+          {settings.showPnL && (
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: 16 }}>
+              <Text style={{ fontSize: token.fontSizeSM }}>{t('calendar.pnlDisplay')}</Text>
+              <Select
+                size="small"
+                value={settings.pnlDisplayMode || 'currency'}
+                onChange={(value) => 
+                  onSettingsChange({ ...settings, pnlDisplayMode: value })
+                }
+                style={{ width: 100 }}
+                options={[
+                  { label: t('calendar.currency'), value: 'currency' },
+                  { label: t('calendar.percentage'), value: 'percentage' },
+                ]}
+              />
+            </div>
+          )}
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Text>{t('calendar.showTradeCount')}</Text>
+            <Text>{t('calendar.showPositionStats')}</Text>
             <Switch
               size="small"
-              checked={settings.showTradeCount}
+              checked={settings.showPositionStats ?? settings.showTradeCount}
               onChange={(checked) => 
-                onSettingsChange({ ...settings, showTradeCount: checked })
+                onSettingsChange({ ...settings, showPositionStats: checked, showTradeCount: checked })
               }
             />
           </div>
@@ -89,6 +106,59 @@ export const SettingsPopover: React.FC<SettingsPopoverProps> = ({
               onChange={(checked) => 
                 onSettingsChange({ ...settings, showWinRate: checked })
               }
+            />
+          </div>
+        </Space>
+      </div>
+
+      <Divider style={{ margin: '12px 0' }} />
+
+      {settings.viewMode === 'heatmap' && (
+        <div>
+          <Text style={{ fontSize: token.fontSizeSM, color: token.colorTextSecondary }}>
+            {t('calendar.heatmapDirection')}
+          </Text>
+          <Select
+            value={settings.heatmapDirection || 'vertical'}
+            onChange={(value: 'horizontal' | 'vertical') => 
+              onSettingsChange({ ...settings, heatmapDirection: value })
+            }
+            style={{ width: '100%', marginTop: 4 }}
+            options={[
+              { label: t('calendar.horizontal'), value: 'horizontal' },
+              { label: t('calendar.vertical'), value: 'vertical' },
+            ]}
+          />
+        </div>
+      )}
+
+      <Divider style={{ margin: '12px 0' }} />
+
+      <div>
+        <Text style={{ fontSize: token.fontSizeSM, color: token.colorTextSecondary }}>
+          {t('calendar.colorSettings')}
+        </Text>
+        <Space direction="vertical" style={{ width: '100%', marginTop: 8 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text>{t('calendar.profitColor')}</Text>
+            <ColorPicker
+              value={settings.profitColor || token.colorSuccess}
+              onChange={(_, hex) => 
+                onSettingsChange({ ...settings, profitColor: hex })
+              }
+              size="small"
+              showText
+            />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text>{t('calendar.lossColor')}</Text>
+            <ColorPicker
+              value={settings.lossColor || token.colorError}
+              onChange={(_, hex) => 
+                onSettingsChange({ ...settings, lossColor: hex })
+              }
+              size="small"
+              showText
             />
           </div>
         </Space>
